@@ -18,7 +18,7 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
                 {/* Logo */}
                 <a href="/"> 
-                    <img src="/public/logos/logotipoblanco.PNG" 
+                    <img src="/public/logos/logotipoblanco.png" 
                         alt="Logotipo Diesel Dynamics Service"
                         className="w-18" 
                     />
@@ -92,4 +92,5 @@ export default function Navbar() {
         </nav>
     );
 }
+
 
