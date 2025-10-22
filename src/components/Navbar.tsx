@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import logotipo from '/public/logos/logotipoblanco.png';
+
 export default function Navbar() {
     const { pathname } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +20,7 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
                 {/* Logo */}
                 <a href="/"> 
-                    <img src="/public/logos/logotipoblanco.png" 
+                    <img src={logotipo} 
                         alt="Logotipo Diesel Dynamics Service"
                         className="w-18" 
                     />
@@ -92,5 +94,3 @@ export default function Navbar() {
         </nav>
     );
 }
-
-
