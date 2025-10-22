@@ -24,6 +24,8 @@ const servicios = [
 ];
 
 
+
+
 export default function Home() {
     return (
         <div>
@@ -131,7 +133,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-justify text-xl w-11/12 mx-auto mb-12">
-                    En DDS podrás encontrar una amplia gama de refacciones tanto de marcas originales 
+                    En DDS podrás encontrar una amplia gama de refacciones tanto de marcas originales
                 </p>
 
                 {/* Grid con centrado completo */}
@@ -167,7 +169,7 @@ export default function Home() {
                 <p className="text-justify text-xl w-11/12 mx-auto mt-24 mb-8">
                     Como marcas de reemplazo
                 </p>
-                               {/* Grid con centrado completo */}
+                {/* Grid con centrado completo */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-11/12 mx-auto">
 
                     <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
@@ -194,7 +196,14 @@ export default function Home() {
             </section>
 
 
-
+            <a
+                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-5 left-72"
+            >
+                WhatsApp
+            </a>
 
 
             {/* Sección ubicacion*/}
@@ -216,6 +225,8 @@ export default function Home() {
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx" loading="lazy" className=" w-full rounded-3xl mx-auto h-96" ></iframe>
                 </div>
             </section>
+
+
 
 
 
