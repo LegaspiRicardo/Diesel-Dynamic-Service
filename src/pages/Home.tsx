@@ -200,7 +200,7 @@ export default function Home() {
                 href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-5 left-72"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-8 left-68 z-50"
             >
                 WhatsApp
             </a>
@@ -208,7 +208,7 @@ export default function Home() {
 
             {/* Sección ubicacion*/}
             <section>
-                <div className=" ">
+                <div className=" mt-8">
                     <div className="flex mb-6 w-11/12 mx-auto">
                         <svg
                             className="w-12 h-16 text-red-800/90 mr-2 inline-block transform rotate-90"
