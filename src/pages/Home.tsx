@@ -219,10 +219,32 @@ export default function Home() {
                             <path d="M10 2 L18 18 H2 Z" />
                         </svg>
                         <h2 className="text-3xl md:text-4xl font-bold mt-3 text-zinc-800 uppercase">
-                            Ubicación
+                            Visítanos
                         </h2>
                     </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx" loading="lazy" className=" w-full rounded-3xl mx-auto h-96" ></iframe>
+
+                    <section className="pb-16">
+                        <div className="container mx-auto px-4">
+
+                            <div className="max-w-2xl mx-auto ">
+                                <div className="bg-white p-8 rounded-lg shadow-md">
+                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Nuestra Ubicación</h3>
+                                    <p className="text-lg text-gray-600 mb-2">
+                                        Los Pinos #2300
+                                    </p>
+                                    <p className="text-lg text-gray-600 mb-2">
+                                        Colonia: La Guadalupana
+                                    </p>
+                                    <p className="text-lg text-gray-600 mb-2">
+                                        San Pedro Tlaquepaque, Jalisco
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx" loading="lazy" className=" w-full rounded-3xl mx-auto h-96 mb-16" ></iframe>
                 </div>
             </section>
 
