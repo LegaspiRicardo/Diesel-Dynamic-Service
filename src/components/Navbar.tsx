@@ -17,7 +17,13 @@ export default function Navbar() {
         <nav className="bg-zinc-800 text-white py-4 shadow-md fixed w-full z-50">
             <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
                 {/* Logo */}
-                <a href="/"> <h1 className="text-2xl font-bold">Diesel Dynamics Service</h1></a>
+                <a href="/"> 
+                    <img src="/public/logos/logotipoblanco.png" 
+                        alt="Logotipo Diesel Dynamics Service"
+                        className="w-18" 
+                    />
+                    <p>Diesel Dynamics Service</p>
+                </a>
 
 
                 {/* Menu escritorio */}
