@@ -9,7 +9,8 @@ body {
 
 /* Indicadores de Swiper */
 .swiper-pagination {
-  bottom: 1rem !important;
+  bottom: 0.3rem !important;
+  scale: 200%;
   /* ajusta la distancia hacia abajo */
 }
 

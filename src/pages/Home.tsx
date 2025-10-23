@@ -1,6 +1,7 @@
 // src/pages/Home.tsx
 import ServiciosCarousel from "../components/ServiciosCarousel";
 
+
 const servicios = [
     { title: "Reparación de motor", icon: "/icons/reparacionmotor.PNG" },
     { title: "Frenos", icon: "/icons/frenos.PNG" },
@@ -29,6 +30,15 @@ const servicios = [
 export default function Home() {
     return (
         <div>
+            {/* Botón Whatsapp*/}
+            <a
+                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-8 left-68 z-50"
+            >
+                WhatsApp
+            </a>
 
             {/* Sección BIENVENIDA*/}
             <section className="bg-black text-white">
@@ -73,7 +83,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed">
-                    Diesel Dynamic Service es una empresa con más de 5 años de experiencia dedicada al
+                    Diesel Dynamic Service es una empresa con más de 9 años de experiencia dedicada al
                     servicio de mantenimiento preventivo y correctivo a flotillas, con experiencia certificada
                     en el ramo del diesel y gasolina.
                 </p>
@@ -115,7 +125,6 @@ export default function Home() {
                 </div>
             </section>
 
-
             {/* Sección Refacciones*/}
             <section className="bg-red-800/90 text-white py-32">
                 <div className="flex mb-6 w-11/12 mx-auto">
@@ -133,7 +142,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-justify text-xl w-11/12 mx-auto mb-12">
-                    En DDS podrás encontrar una amplia gama de refacciones tanto de marcas originales
+                    En DDS podrá encontrar una amplia gama de refacciones tanto de marcas originales
                 </p>
 
                 {/* Grid con centrado completo */}
@@ -195,18 +204,50 @@ export default function Home() {
 
             </section>
 
+            {/* Sección ¿Porque elegirnos?*/}
+            <section className="py-32 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/images/carretera.jpg)' }}>
 
-            <a
-                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-8 left-68 z-50"
-            >
-                WhatsApp
-            </a>
+                <div className="w-11/12 mx-auto text-justify relative z-10">
+                    <h2 className="text-3xl font-bold uppercase mb-24 text-center text-white">¿Porque elegirnos?</h2>
 
+                    <article className="py-4 bg-white bg-opacity-90 relative rounded" style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
+                        <div className="">
+                            <div className="w-10/12 ml-4 ">
+                                <h3 className="uppercase font-semibold mb-2 text-2xl">Minimiza tiempos muertos</h3>
+                                <p className="text-xl ">Programamos el mantenimiento de toda su flota para que ningún camión pare más de lo necesario.</p>
+                            </div>
+                        </div>
+                    </article>
 
-            {/* Sección ubicacion*/}
+                    <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded" style={{ clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%)' }}>
+                        <div className="">
+                            <div className="w-10/12 ml-12 ">
+                                <h3 className="uppercase font-semibold mb-2 text-2xl">Maximiza la vida util</h3>
+                                <p className="text-xl ">Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="py-4 bg-white bg-opacity-90 relative mt-8 min-h-42 rounded" style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
+                        <div className="">
+                            <div className="w-10/12 ml-4 mt-4">
+                                <h3 className="uppercase font-semibold mb-2 text-2xl">Transparencia total</h3>
+                                <p className="text-xl ">Recibirá fotografias y detalles de cada servicio, sin cargos ocultos.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div className="text-center mt-32">
+                        <h3 className="text-2xl font-bold text-white">¿Qué espera? </h3>
+                        <h3 className="text-2xl font-bold mb-6 text-white">Invierta en su flotilla</h3>
+                        <button className="bg-red-800/90 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">
+                            COTIZAR AHORA
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            {/* Sección ubicacion y contacto*/}
             <section>
                 <div className=" mt-8">
                     <div className="flex mb-6 w-11/12 mx-auto">
@@ -218,8 +259,8 @@ export default function Home() {
                         >
                             <path d="M10 2 L18 18 H2 Z" />
                         </svg>
-                        <h2 className="text-3xl md:text-4xl font-bold mt-3 text-zinc-800 uppercase">
-                            Visítanos
+                        <h2 className="text-3xl md:text-4xl font-bold  text-zinc-800 uppercase">
+                            Ubicación y contacto
                         </h2>
                     </div>
 
@@ -228,9 +269,9 @@ export default function Home() {
 
                             <div className="max-w-2xl mx-auto ">
                                 <div className="bg-white p-8 rounded-lg shadow-md">
-                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Nuestra Ubicación</h3>
+                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Domicilio:</h3>
                                     <p className="text-lg text-gray-600 mb-2">
-                                        Los Pinos #2300
+                                        Calle: <span className="text-red-700 font-bold">Los Pinos #2300</span>
                                     </p>
                                     <p className="text-lg text-gray-600 mb-2">
                                         Colonia: La Guadalupana
@@ -240,6 +281,21 @@ export default function Home() {
                                     </p>
                                 </div>
                             </div>
+
+
+                            <div className="max-w-2xl mx-auto mt-8">
+                                <div className="bg-white p-8 rounded-lg shadow-md">
+                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Medios de comunicación</h3>
+                                    <p className="text-lg text-gray-600 mb-2 flex">
+                                        Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-4">dieselservice82@gmail.com</a>
+                                    </p>
+                                    <p className="text-lg text-gray-600 mb-2">
+                                        Teléfono: <span className="text-red-700 font-bold text-xl"> 33 2629 5248 </span>
+                                    </p>
+                                </div>
+                            </div>
+
+
                         </div>
                     </section>
 
