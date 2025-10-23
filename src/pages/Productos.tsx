@@ -1,5 +1,5 @@
 // src/pages/Productos.tsx
-import RefaccionesCarousel from "../components/RefaccionesCarousel";
+import RefaccionesGrid from "../components/RefaccionesGrid";
 
 const categoriasRefacciones = [
     {
@@ -82,7 +82,7 @@ export default function Productos() {
                 <div className="max-w-6xl mx-auto px-6 text-center">
                     <h1 className="text-5xl font-bold mb-6">Refacciones </h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
-                        Partes originales y de reemplazo de alta calidad
+                        Partes originales y de reemplazo 
                     </p>
                     <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition">
                         Solicitar Cotización
@@ -96,15 +96,15 @@ export default function Productos() {
                     <p className="text-lg font-bold text-gray-600 max-w-3xl mx-auto text-justify">
                         En Diesel Dynamics Service, entendemos que la calidad de las refacciones es fundamental
                         para el <span className="text-red-800">rendimiento y durabilidad</span> de su flota.
-                        Por eso trabajamos con los mejores proveedores y garantizamos la calidad de cada pieza.
+                        Por eso trabajamos con los mejores proveedores.
                     </p>
                 </div>
-                <div className="text-center mb-8">
-                    <p className="text-xl font-bold text-gray-600 max-w-2xl mx-auto text-center">
+                <div className=" mb-8">
+                    <p className="text-xl font-bold text-gray-600 max-w-2xl mx-auto ">
                         Conozca nuestro catálogo
                     </p>
                 </div>
-                <RefaccionesCarousel categorias={categoriasRefacciones} itemsPerSlide={3} />
+                <RefaccionesGrid categorias={categoriasRefacciones}  />
             </section>
 
             {/* Introducción a las Refacciones */}

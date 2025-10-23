@@ -27,14 +27,19 @@ const servicios = [
 export default function Home() {
     return (
         <div>
-            {/* Botón Whatsapp*/}
             <a
                 href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-8 left-68 z-50"
+                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 group"
             >
-                WhatsApp
+                <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
+                {/* Tooltip */}
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    WhatsApp
+                    {/* Flecha del tooltip */}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                </div>
             </a>
 
             {/* Sección BIENVENIDA*/}
