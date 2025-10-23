@@ -1,7 +1,6 @@
 // src/pages/Home.tsx
 import ServiciosCarousel from "../components/ServiciosCarousel";
 
-
 const servicios = [
     { title: "Reparación de motor", icon: "/icons/reparacionmotor.PNG" },
     { title: "Frenos", icon: "/icons/frenos.PNG" },
@@ -23,8 +22,6 @@ const servicios = [
 
 
 ];
-
-
 
 
 export default function Home() {
@@ -287,7 +284,7 @@ export default function Home() {
                                 <div className="bg-white p-8 rounded-lg shadow-md">
                                     <h3 className="text-2xl font-semibold mb-4 text-gray-700">Medios de comunicación</h3>
                                     <p className="text-lg text-gray-600 mb-2 flex">
-                                        Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-4">dieselservice82@gmail.com</a>
+                                        Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-2">dieselservice82@gmail.com</a>
                                     </p>
                                     <p className="text-lg text-gray-600 mb-2">
                                         Teléfono: <span className="text-red-700 font-bold text-xl"> 33 2629 5248 </span>
