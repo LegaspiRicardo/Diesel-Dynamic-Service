@@ -210,7 +210,7 @@ export default function Home() {
                     <article className="py-4 bg-white bg-opacity-90 relative rounded" style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
                         <div className="">
                             <div className="w-10/12 ml-4 ">
-                                <h3 className="uppercase font-semibold mb-2 text-2xl">Minimiza tiempos muertos</h3>
+                                <h3 className="uppercase font-semibold mb-2 text-2xl text-left">Minimiza tiempos muertos</h3>
                                 <p className="text-xl ">Programamos el mantenimiento de toda su flota para que ningún camión pare más de lo necesario.</p>
                             </div>
                         </div>

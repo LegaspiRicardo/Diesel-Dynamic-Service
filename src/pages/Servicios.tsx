@@ -36,7 +36,7 @@ export default function Servicios() {
             {/* Hero Section para Servicios */}
             <div className="bg-red-800/90 text-white py-20">
                 <div className="max-w-6xl mx-auto px-6 text-center">
-                    <h1 className="text-5xl font-bold mb-6">Servicios Especializados para Flotillas</h1>
+                    <h1 className="text-5xl font-bold mb-6">Servicios </h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         Mantenga su negocio en movimiento
                     </p>
@@ -116,9 +116,9 @@ export default function Servicios() {
             {/* Llamada a la acción final */}
             <div className="bg-red-800/90 text-white py-12">
                 <div className="max-w-4xl mx-auto text-center px-6">
-                    <h2 className="text-3xl font-bold mb-4">¿Necesitas un trabajo más específico?</h2>
+                    <h2 className="text-3xl font-bold mb-4">¿Necesita un trabajo más específico?</h2>
                     <p className="text-xl mb-6">
-                        Contáctanos y recibe una cotización personalizada para las necesidades de tu flota
+                        Contáctenos y reciba una cotización personalizada para las necesidades de su flota
                     </p>
                     <button className="border border-white hover:bg-gray-100 px-8 py-3 rounded-lg font-bold text-lg transition">
                         Solicitar información
