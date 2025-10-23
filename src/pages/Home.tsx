@@ -1,5 +1,6 @@
 // src/pages/Home.tsx
 import ServiciosCarousel from "../components/ServiciosCarousel";
+import SimpleHeroCarousel from "../components/SimpleHeroCarousel";
 
 const servicios = [
     { title: "Reparación de motor", icon: "/icons/reparacionmotor.PNG" },
@@ -24,6 +25,26 @@ const servicios = [
 ];
 
 
+// Dentro de tu componente Home
+const homeSlides = [
+    {
+        image: "/images/camionescarretera.jpg",
+        title: "Servicio a flotillas y particulares.",
+    },
+    {
+        image: "/images/camion1.jpg", // Reemplaza con tu imagen
+        title: "Refacciones originales de primera calidad.",
+    },
+    {
+        image: "/images/refacciones/motor1.jpg", // Reemplaza con tu imagen
+        title: "Amplio inventario de refacciones.",
+    },
+    {
+        image: "/images/volantecamion.jpg", // Reemplaza con tu imagen
+        title: "Atención experta y personalizada",
+    },
+];
+
 export default function Home() {
     return (
         <div>
@@ -36,7 +57,13 @@ export default function Home() {
                 <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
             </a>
 
-            {/* Sección BIENVENIDA*/}
+            <SimpleHeroCarousel
+                slides={homeSlides}
+                autoPlayInterval={3000} 
+            />
+
+
+            {/* Sección BIENVENIDA
             <section className="bg-black text-white">
                 <div className="max-w-6xl mx-auto pt-16 text-center static">
 
@@ -60,7 +87,7 @@ export default function Home() {
 
 
                 </div>
-            </section>
+            </section>*/}
 
             {/* Sección "Quiénes somos" */}
             <section className="max-w-6xl mx-auto px-6 pt-20">
