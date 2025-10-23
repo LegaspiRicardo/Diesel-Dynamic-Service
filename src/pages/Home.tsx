@@ -59,7 +59,7 @@ export default function Home() {
 
             <SimpleHeroCarousel
                 slides={homeSlides}
-                autoPlayInterval={3000} 
+                autoPlayInterval={3000}
             />
 
 
@@ -119,7 +119,7 @@ export default function Home() {
             {/* Lineas diagonales, separando secciones */}
             <div className="w-full overflow-hidden transform mt-24 mb-16 static">
                 <svg
-                    className="w-full h-64 md:h-32 block transform rotate-y-180 "
+                    className="w-full h-64 md:h-32 block transform rotate-y-180"
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
                 >
@@ -134,9 +134,23 @@ export default function Home() {
                         className="fill-red-800"
                     />
                 </svg>
-                <div className=" w-3/6 text-center">
-                    <h2 className="text-3xl font-bold uppercase">Servicios</h2>
-                    <p className=" font-semibold">Diesel y gasolina</p>
+                <div className="flex w-11/12 mx-auto ">
+                    <svg
+                        className="w-12 h-16 text-zinc-800/90 mr-2 inline-block transform rotate-90"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M10 2 L18 18 H2 Z" />
+                    </svg>
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-bold mt-1 text-zinc-800 uppercase">
+                            Servicios
+                        </h2>
+                        <p className="font-semibold text-center">Diesel y gasolina</p>
+                    </div>
+
+
                 </div>
 
             </div>
