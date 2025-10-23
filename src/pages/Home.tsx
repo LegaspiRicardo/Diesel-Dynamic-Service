@@ -34,12 +34,6 @@ export default function Home() {
                 className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 group"
             >
                 <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
-                {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-                    WhatsApp
-                    {/* Flecha del tooltip */}
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
-                </div>
             </a>
 
             {/* Sección BIENVENIDA*/}
@@ -96,7 +90,7 @@ export default function Home() {
             </section>
 
             {/* Lineas diagonales, separando secciones */}
-            <div className="w-full overflow-hidden transform mt-24 static">
+            <div className="w-full overflow-hidden transform mt-24 mb-16 static">
                 <svg
                     className="w-full h-64 md:h-32 block transform rotate-y-180 "
                     viewBox="0 0 100 100"
@@ -105,7 +99,7 @@ export default function Home() {
                     {/* Línea gris: diagonal superior */}
                     <polygon
                         points="0,0 100,0 100,2 0,80"
-                        className="fill-gray-800"
+                        className="fill-zinc-800"
                     />
                     {/* Línea roja: diagonal intermedia */}
                     <polygon
@@ -121,7 +115,7 @@ export default function Home() {
             </div>
 
             {/* Sección Servicios*/}
-            <section className=" w-10/12 mx-auto my-12">
+            <section className=" w-10/12 mx-auto my-12 pt-8">
                 <div>
                     <ServiciosCarousel servicios={servicios} itemsPerSlide={5} />
                 </div>

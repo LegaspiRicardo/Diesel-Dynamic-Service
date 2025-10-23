@@ -69,12 +69,12 @@ export default function Productos() {
         <section className="pt-12">
             {/* Botón Whatsapp */}
             <a
-                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20refacciones"
+                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 fixed bottom-8 left-68 z-50"
+                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 group"
             >
-                WhatsApp
+                <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
             </a>
 
             {/* Hero Section para Refacciones */}
