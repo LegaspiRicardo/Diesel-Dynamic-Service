@@ -134,7 +134,7 @@ export default function Home() {
                         className="fill-red-800"
                     />
                 </svg>
-                <div className="0 w-3/6 absolute top-430 text-center">
+                <div className=" w-3/6 text-center">
                     <h2 className="text-3xl font-bold uppercase">Servicios</h2>
                     <p className=" font-semibold">Diesel y gasolina</p>
                 </div>
@@ -142,7 +142,7 @@ export default function Home() {
             </div>
 
             {/* Sección Servicios*/}
-            <section className=" w-10/12 mx-auto my-12 pt-8">
+            <section className=" w-10/12 mx-auto my-12 ">
                 <div>
                     <ServiciosCarousel servicios={servicios} itemsPerSlide={5} />
                 </div>
