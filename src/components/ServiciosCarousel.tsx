@@ -29,9 +29,9 @@ export default function ServiciosCarousel({ servicios, itemsPerSlide = 5 }: Prop
         >
             {slides.map((group, idx) => (
                 <SwiperSlide key={idx}>
-                    <div className="flex flex-col md:flex-row justify-center gap-2 flex-wrap pb-16">
+                    <div className="flex flex-col md:flex-row justify-center gap-2 flex-wrap pb-16 ">
                         {group.map((servicio, sIdx) => (
-                            <div key={sIdx} className="border-3 border-red-800 rounded-full flex items-center  justify-start">
+                            <div key={sIdx} className="border-3 border-red-800 rounded-full flex items-center md:min-w-100 md:max-w-100 justify-start">
                                 <div className="w-24 h-24 shrink-0">
                                     <img
                                         src={servicio.icon}

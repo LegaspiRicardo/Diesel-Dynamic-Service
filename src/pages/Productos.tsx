@@ -72,7 +72,7 @@ export default function Productos() {
                 href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 group"
+                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 md:left-160 lg:left-220"
             >
                 <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
             </a>

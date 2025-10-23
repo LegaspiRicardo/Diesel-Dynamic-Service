@@ -52,7 +52,7 @@ export default function Home() {
                 href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 group"
+                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 md:left-160 lg:left-220"
             >
                 <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
             </a>
@@ -242,42 +242,50 @@ export default function Home() {
             </section>
 
             {/* Sección ¿Porque elegirnos?*/}
+            {/* Sección ¿Porque elegirnos?*/}
             <section className="py-32 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/images/carretera.jpg)' }}>
 
                 <div className="w-11/12 mx-auto text-justify relative z-10">
                     <h2 className="text-3xl font-bold uppercase mb-24 text-center text-white">¿Porque elegirnos?</h2>
 
-                    <article className="py-4 bg-white bg-opacity-90 relative rounded" style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                        <div className="">
-                            <div className="w-10/12 ml-4 ">
-                                <h3 className="uppercase font-semibold mb-2 text-2xl text-left">Minimiza tiempos muertos</h3>
-                                <p className="text-xl ">Programamos el mantenimiento de toda su flota para que ningún camión pare más de lo necesario.</p>
-                            </div>
-                        </div>
-                    </article>
+                    <div className="md:grid md:grid-cols-3 md:gap-6 md:items-stretch lg:gap-8">
 
-                    <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded" style={{ clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%)' }}>
-                        <div className="">
-                            <div className="w-10/12 ml-12 ">
-                                <h3 className="uppercase font-semibold mb-2 text-2xl">Maximiza la vida util</h3>
-                                <p className="text-xl ">Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades.</p>
+                        <article className="py-4 bg-white bg-opacity-90 relative rounded md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
+                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
+                            <div className="md:p-4 lg:p-6 h-full flex items-center">
+                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
+                                    <h3 className="uppercase font-semibold mb-2 text-2xl text-left md:text-left md:text-lg lg:text-xl xl:text-2xl">Minimiza tiempos muertos</h3>
+                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Programamos el mantenimiento de su flota para que ningún camión pare más de lo necesario.</p>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <article className="py-4 bg-white bg-opacity-90 relative mt-8 min-h-42 rounded" style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                        <div className="">
-                            <div className="w-10/12 ml-4 mt-4">
-                                <h3 className="uppercase font-semibold mb-2 text-2xl">Transparencia total</h3>
-                                <p className="text-xl ">Recibirá fotografias y detalles de cada servicio, sin cargos ocultos.</p>
+                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
+                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
+                            <div className="md:p-4 lg:p-6 h-full flex items-center">
+                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
+                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Maximiza la vida util</h3>
+                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades.</p>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <div className="text-center mt-32">
-                        <h3 className="text-2xl font-bold text-white">¿Qué espera? </h3>
-                        <h3 className="text-2xl font-bold mb-6 text-white">Invierta en su flotilla</h3>
-                        <button className="bg-red-800/90 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">
+                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
+                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
+                            <div className="md:p-4 lg:p-6 h-full flex items-center">
+                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
+                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Transparencia total</h3>
+                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Recibirá fotografias y detalles de cada servicio, sin cargos ocultos.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div className="text-center mt-32 md:mt-20 lg:mt-24">
+                        <h3 className="text-2xl font-bold text-white md:text-2xl lg:text-3xl">¿Qué espera? </h3>
+                        <h3 className="text-2xl font-bold mb-6 text-white md:text-2xl lg:text-3xl">Invierta en su flotilla</h3>
+                        <button className="bg-red-800/90 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition md:px-10 md:py-4 md:text-lg">
                             COTIZAR AHORA
                         </button>
                     </div>
