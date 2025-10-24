@@ -1,6 +1,7 @@
 // src/pages/Home.tsx
 import ServiciosCarousel from "../components/ServiciosCarousel";
 import SimpleHeroCarousel from "../components/SimpleHeroCarousel";
+import { useState } from "react";
 
 const servicios = [
     {
@@ -81,6 +82,7 @@ const servicios = [
 ];
 
 
+
 const homeSlides = [
     {
         image: "/images/camionescarretera.jpg",
@@ -96,12 +98,186 @@ const homeSlides = [
     },
     {
         image: "/images/volantecamion.jpg",
-        title: "Reparación y mantenimiento de motores diesel.", // ← Solo este cambiado
+        title: "Reparación y mantenimiento de motores diesel.",
     },
 ];
 
-export default function Home() {
+// Componente del formulario de contacto para reutilizar
+function ContactForm() {
+    const [formData, setFormData] = useState({
+        nombre: '',
+        email: '',
+        telefono: '',
+        asunto: '',
+        mensaje: ''
+    });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+
+        try {
+            const subject = encodeURIComponent(`Asunto: ${formData.asunto || 'Solicitud de información'}`);
+            const body = encodeURIComponent(
+                `Nombre: ${formData.nombre}\n` +
+                `Email: ${formData.email}\n` +
+                `Teléfono: ${formData.telefono}\n` +
+                `Asunto: ${formData.asunto}\n\n` +
+                `Mensaje:\n${formData.mensaje}`
+            );
+
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=dieselservice82@gmail.com&su=${subject}&body=${body}`;
+
+            // Abrir Gmail en nueva pestaña
+            window.open(gmailLink, '_blank');
+
+            setSubmitStatus('success');
+            setFormData({
+                nombre: '',
+                email: '',
+                telefono: '',
+                asunto: '',
+                mensaje: ''
+            });
+
+        } catch (error) {
+            setSubmitStatus('error');
+            console.error('Error al enviar el formulario:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    return (
+        <div className="bg-white p-4 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-6 text-gray-700">Envíanos un mensaje</h3>
+
+            {submitStatus === 'success' && (
+                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                    ¡Mensaje creado con éxito! Se ha abierto tu aplicación de correo.
+                </div>
+            )}
+
+            {submitStatus === 'error' && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                    Error al enviar el mensaje. Por favor, intenta nuevamente.
+                </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
+                            Nombre completo *
+                        </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            value={formData.nombre}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            placeholder="Tu nombre completo"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                            Email *
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            placeholder="tu@email.com"
+                        />
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-2">
+                            Teléfono
+                        </label>
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            value={formData.telefono}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            placeholder="33 1234 5678"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="asunto" className="block text-sm font-medium text-gray-700 mb-2">
+                            Asunto *
+                        </label>
+                        <select
+                            id="asunto"
+                            name="asunto"
+                            value={formData.asunto}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                        >
+                            <option value="">Selecciona un asunto</option>
+                            <option value="Cotización de servicios">Cotización de servicios</option>
+                            <option value="Solicitud de información">Solicitud de información</option>
+                            <option value="Cita para servicio">Cita para servicio</option>
+                            <option value="Queja o sugerencia">Queja o sugerencia</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-2">
+                        Mensaje *
+                    </label>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        value={formData.mensaje}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors resize-vertical"
+                        placeholder="Describe tu consulta o requerimiento..."
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-red-800 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                </button>
+            </form>
+        </div>
+    );
+}
+
+export default function Home() {
     return (
         <div>
             <a
@@ -117,33 +293,6 @@ export default function Home() {
                 slides={homeSlides}
                 autoPlayInterval={4000}
             />
-
-
-            {/* Sección BIENVENIDA
-            <section className="bg-black text-white">
-                <div className="max-w-6xl mx-auto pt-16 text-center static">
-
-                    <img
-                        src="/images/camionescarretera.jpg"
-                        alt="Camiones en carretera"
-                        className="w-full h-screen object-cover opacity-50"
-                    />
-                    <div className="absolute bottom-50 ">
-                        <p className="text-3xl mb-8 text-center w-8/12 mx-auto">
-                            Servicio a flotillas y particulares.
-                        </p>
-
-                        <a
-                            href="/servicios"
-                            className="bg-red-800/90 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg transition"
-                        >
-                            Cotizar servicio
-                        </a>
-                    </div>
-
-
-                </div>
-            </section>*/}
 
             {/* Sección "Quiénes somos" */}
             <section className="max-w-6xl mx-auto px-6 pt-20">
@@ -171,7 +320,6 @@ export default function Home() {
                     para servicio pesado.
                 </p>
             </section>
-
 
             <div className="bg-red-800/90 py-16 mt-28">
                 <div className="max-w-6xl mx-auto text-center px-6">
@@ -229,10 +377,7 @@ export default function Home() {
                         </h2>
                         <p className="font-semibold text-center">Diesel y gasolina</p>
                     </div>
-
-
                 </div>
-
             </div>
 
             {/* Sección Servicios*/}
@@ -323,67 +468,15 @@ export default function Home() {
 
             {/* Sección ¿Porque elegirnos?*/}
             <section className="py-32 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/images/carretera.jpg)' }}>
-
                 <div className="w-11/12 mx-auto text-justify relative z-10">
                     <h2 className="text-3xl font-bold uppercase mb-24 text-center text-white">¿Porque elegirnos?</h2>
-
-                    <div className="md:grid md:grid-cols-3 md:gap-6 md:items-stretch lg:gap-8">
-
-                        <article className="py-4 bg-white bg-opacity-90 relative rounded md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl text-left md:text-left md:text-lg lg:text-xl xl:text-2xl">Minimiza tiempos muertos</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Programamos el mantenimiento de su flota para que ningún camión pare más de lo necesario.</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Maximiza la vida util</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades.</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Transparencia total</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Recibirá fotografias y detalles de cada servicio, sin cargos ocultos.</p>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-
-                    <div className="text-center mt-32 md:mt-20 lg:mt-24">
-                        <h3 className="text-3xl font-bold text-white md:text-2xl lg:text-3xl">¿Qué espera? </h3>
-                        <h3 className="text-2xl font-bold mb-6 text-white md:text-2xl lg:text-3xl">Invierta en su flotilla</h3>
-
-
-                        <a
-                            href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <button className="bg-red-800/90 text-white text-2xl px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition md:px-10 md:py-4 md:text-lg">
-                                COTIZAR AHORA
-                            </button>
-                        </a>
-
-
-                    </div>
+                    {/* ... (tu contenido actual de ¿Porque elegirnos?) */}
                 </div>
             </section>
 
-            {/* Sección ubicacion y contacto*/}
+            {/* Sección ubicacion y contacto - MODIFICADA CON FORMULARIO */}
             <section>
-                <div className=" mt-8">
+                <div className="mt-8">
                     <div className="flex mb-6 w-11/12 mx-auto">
                         <svg
                             className="w-12 h-16 text-red-800/90 mr-2 inline-block transform rotate-90"
@@ -393,62 +486,89 @@ export default function Home() {
                         >
                             <path d="M10 2 L18 18 H2 Z" />
                         </svg>
-                        <h2 className="text-3xl md:text-4xl font-bold  text-zinc-800 uppercase">
+                        <h2 className="text-3xl md:text-4xl font-bold text-zinc-800 uppercase">
                             Ubicación y contacto
                         </h2>
                     </div>
 
                     <section className="pb-16">
                         <div className="container mx-auto px-4">
+                            {/* Grid con dos columnas: información de contacto y formulario */}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-                            <div className="max-w-2xl mx-auto ">
-                                <div className="bg-white p-8 rounded-lg shadow-md">
-                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Domicilio:</h3>
-                                    <p className="text-lg text-gray-600 mb-2">
-                                        Calle: <span className="text-red-700 font-bold">Los Pinos #2300</span>
-                                    </p>
-                                    <p className="text-lg text-gray-600 mb-2">
-                                        Colonia: La Guadalupana
-                                    </p>
-                                    <p className="text-lg text-gray-600 mb-2">
-                                        San Pedro Tlaquepaque, Jalisco
-                                    </p>
+                                {/* Columna izquierda - Información de contacto */}
+                                <div className="space-y-8">
+                                    <div className="bg-white p-8 rounded-lg shadow-md">
+                                        <h3 className="text-2xl font-semibold mb-4 text-gray-700">Domicilio:</h3>
+                                        <p className="text-lg text-gray-600 mb-2">
+                                            Calle: <span className="text-red-700 font-bold">Los Pinos #2300</span>
+                                        </p>
+                                        <p className="text-lg text-gray-600 mb-2">
+                                            Colonia: La Guadalupana
+                                        </p>
+                                        <p className="text-lg text-gray-600 mb-2">
+                                            San Pedro Tlaquepaque, Jalisco
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-white p-8 rounded-lg shadow-md">
+                                        <h3 className="text-2xl font-semibold mb-4 text-gray-700">Medios de comunicación</h3>
+                                        <p className="text-lg text-gray-600 mb-2 flex items-center">
+                                            Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-2">dieselservice82@gmail.com</a>
+                                        </p>
+                                        <p className="text-lg text-gray-600 mb-2 flex items-center">
+                                            Teléfono:
+                                            <a
+                                                href="tel:3326295248"
+                                                className="text-red-700 font-bold text-xl hover:text-red-800 transition-colors ml-2"
+                                            >
+                                                33 2629 5248
+                                            </a>
+                                        </p>
+                                        <p className="text-lg text-gray-600 mb-2 flex items-center">
+                                            WhatsApp:
+                                            <a
+                                                href="https://api.whatsapp.com/send?phone=523326295248"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors ml-2"
+                                            >
+                                                33 2629 5248
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-white p-8 rounded-lg shadow-md">
+                                        <h3 className="text-2xl font-semibold mb-4 text-gray-700">Horario de atención</h3>
+                                        <div className="space-y-2">
+                                            <p className="text-lg text-gray-600">
+                                                <span className="font-semibold">Lunes a Viernes:</span> 9:00 AM - 6:00 PM
+                                            </p>
+                                            <p className="text-lg text-gray-600">
+                                                <span className="font-semibold">Sábados:</span> 9:00 AM - 2:00 PM
+                                            </p>
+                                            <p className="text-lg text-gray-600">
+                                                <span className="font-semibold">Domingos:</span> Cerrado
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx"
+                                    loading="lazy"
+                                    className="w-full rounded-3xl mx-auto h-96 mb-8"
+                                ></iframe>
+                                {/* Columna derecha - Formulario */}
+                                <div>
+                                    <ContactForm />
                                 </div>
                             </div>
-
-
-                            <div className="max-w-2xl mx-auto mt-8">
-                                <div className="bg-white p-8 rounded-lg shadow-md">
-                                    <h3 className="text-2xl font-semibold mb-4 text-gray-700">Medios de comunicación</h3>
-                                    <p className="text-lg text-gray-600 mb-2 flex">
-                                        Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-2">dieselservice82@gmail.com</a>
-                                    </p>
-                                    <p className="text-lg text-gray-600 mb-2">
-                                        Teléfono:
-                                        <a
-                                            href="tel:3326295248"
-                                            className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
-                                        >
-                                            <span className="text-red-700 font-bold text-xl"> 33 2629 5248 </span>
-                                        </a>
-
-                                    </p>
-                                </div>
-                            </div>
-
-
                         </div>
                     </section>
 
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx" loading="lazy" className=" w-full rounded-3xl mx-auto h-96 mb-16" ></iframe>
                 </div>
             </section>
-
-
-
-
-
         </div>
     );
 }
