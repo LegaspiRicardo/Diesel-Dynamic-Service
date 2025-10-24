@@ -50,7 +50,7 @@ export default function Rescates() {
                 <div className=" mx-auto text-center">
                     <h1 className="text-white text-4xl font-bold uppercase mb-4">Rescate urgente</h1>
                     <p className="text-white">Llame al:</p>
-                    <div className="flex w-10/12 mx-auto  ">
+                    <div className="flex w-11/12 mx-auto  ">
                         <img src="/icons/telefono.png" alt="Icono telefono" className="w-7 max-h-7 mt-3 ml-1" />
                         <h1 className="text-white text-5xl font-bold uppercase ml-auto ">33 2629 5248</h1>
                     </div>
