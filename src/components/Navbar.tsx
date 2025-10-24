@@ -46,9 +46,7 @@ export default function Navbar() {
                                 className="w-24"
                             />
                         </a>
-                        <p className="text-sm text-gray-300 ml-4">
-                            Diesel Dynamics Service
-                        </p>
+
                     </div>
 
                     {/* Botón menú hamburguesa - siempre visible */}
@@ -59,7 +57,6 @@ export default function Navbar() {
                         <div className="w-8 h-8 flex items-center justify-center bg-zinc-700 rounded-lg group-hover:bg-zinc-600 transition-colors">
                             <span className="text-lg font-bold">☰</span>
                         </div>
-                        <span className="mt-1">Menú</span>
                     </button>
                 </div>
             </header>
