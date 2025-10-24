@@ -1,96 +1,163 @@
 // src/components/Navbar.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import logotipo from '/public/logos/logotipoblanco.png';
 
 export default function Navbar() {
     const { pathname } = useLocation();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const links = [
-        { name: "Inicio", path: "/" },
-        { name: "Servicios", path: "/servicios" },
-        { name: "Refacciones", path: "/productos" },
-        { name: "Contacto", path: "/contacto" },
+        { name: "Inicio", path: "/", icon: "home.png" },
+        { name: "Servicios", path: "/servicios", icon: "categorias.png" },
+        { name: "Refacciones", path: "/productos", icon: "lista.png" },
+        { name: "Contacto", path: "/contacto", icon: "telefono.png" },
     ];
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 800) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <nav className="bg-zinc-800 text-white py-4 shadow-md fixed w-full z-50">
-            <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
-                {/* Logo */}
-                <a href="/"> 
-                    <img src={logotipo} 
-                        alt="Logotipo Diesel Dynamics Service"
-                        className="w-18" 
-                    />
-                    <p>Diesel Dynamics Service</p>
-                </a>
+        <>
+            <header className={`bg-zinc-800 text-white py-3 px-6 shadow-md transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 right-0 z-50' : 'relative'}`}>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                        <a
+                            href="/"
+                            className="hover:text-red-800 transition-colors"
+                        >
+                            <img
+                                src={logotipo}
+                                alt="Logotipo Diesel Dynamics Service"
+                                className="w-24"
+                            />
+                        </a>
+                        <p className="text-sm text-gray-300 ml-4 hidden md:block">
+                            Diesel Dynamics Service
+                        </p>
+                    </div>
 
+                    {/* Menu escritorio */}
+                    <ul className="hidden md:flex space-x-6">
+                        {links.map((link) => (
+                            <li key={link.path}>
+                                <Link
+                                    to={link.path}
+                                    className={`hover:text-red-800 transition ${pathname === link.path ? "text-red-800 font-semibold" : ""
+                                        }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
 
-                {/* Menu escritorio */}
-                <ul className="hidden md:flex space-x-6">
-                    {links.map((link) => (
-                        <li key={link.path}>
-                            <Link
-                                to={link.path}
-                                className={`hover:text-red-800 transition ${pathname === link.path ? "text-red-800 font-semibold" : ""
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Botón hamburguesa */}
-                <button
-                    className="md:hidden flex items-center"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
+                    {/* Botón para abrir/cerrar el menú lateral */}
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="hover:text-red-800 transition-colors flex flex-col items-center text-xs group"
                     >
-                        {isOpen ? (
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M6 18L18 6M6 6l12 12"
+                        <div className="w-8 h-8 flex items-center justify-center bg-zinc-700 rounded-lg group-hover:bg-zinc-600 transition-colors">
+                            <span className="text-lg font-bold">☰</span>
+                        </div>
+                        <span className="hidden sm:block mt-1">Menú</span>
+                    </button>
+                </div>
+            </header>
+
+            {/* Menú lateral (navbar) */}
+            <div className={`fixed top-0 right-0 h-full w-80 bg-zinc-800 text-white shadow-2xl z-50 transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className="p-6">
+                    {/* Header del menú lateral */}
+                    <div className="flex justify-between items-center mb-8">
+                        <h2 className="text-xl font-bold">Diesel Dynamics Service</h2>
+                        <button
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-white hover:text-red-800 text-2xl transition-colors"
+                        >
+                            ×
+                        </button>
+                    </div>
+
+                    {/* Links de navegación con iconos */}
+                    <nav className="space-y-4">
+                        {links.map((link) => (
+                            <NavLink
+                                key={link.path}
+                                to={link.path}
+                                icon={link.icon}
+                                label={link.name}
+                                isActive={pathname === link.path}
+                                onClick={() => setIsMenuOpen(false)}
                             />
-                        ) : (
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        )}
-                    </svg>
-                </button>
+                        ))}
+                    </nav>
+
+                    {/* Información adicional */}
+                    <div className="mt-12 pt-6 border-t border-zinc-700">
+                        <p className="text-sm text-zinc-200 mb-2">Contacto</p>
+                        <p className="text-xs text-zinc-300">Teléfono: 33 2629 5248</p>
+                        <p className="text-xs text-zinc-300">Email: dieselservice82@gmail.com</p>
+                    </div>
+                </div>
             </div>
 
-            {/* Menu móvil */}
-            {isOpen && (
-                <ul className="md:hidden bg-zinc-800/95 px-6 pt-4 pb-6 space-y-3">
-                    {links.map((link) => (
-                        <li key={link.path}>
-                            <Link
-                                to={link.path}
-                                onClick={() => setIsOpen(false)} // cierra el menú al hacer click
-                                className={`block hover:text-red-600 transition ${pathname === link.path ? "text-red-500 font-semibold" : ""
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+            {/* Overlay para cerrar el menú al hacer clic fuera */}
+            {isMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                    onClick={() => setIsMenuOpen(false)}
+                />
             )}
-        </nav>
+        </>
     );
 }
+
+// Componente auxiliar para los links de navegación con iconos
+const NavLink = ({
+    to,
+    icon,
+    label,
+    isActive,
+    onClick
+}: {
+    to: string;
+    icon: string;
+    label: string;
+    isActive: boolean;
+    onClick: () => void;
+}) => (
+    <Link
+        to={to}
+        onClick={onClick}
+        className={`flex items-center space-x-4 p-3 rounded-lg transition-all group ${isActive
+                ? "bg-zinc-700 text-red-800 border-l-4 border-red-800"
+                : "hover:bg-zinc-700 hover:text-red-800"
+            }`}
+    >
+        <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all group-hover:scale-110 ${isActive ? "bg-white" : "bg-zinc-600 group-hover:bg-zinc-500"
+            }`}>
+            <img
+                src={`/icons/${icon}`}
+                alt={label}
+                className="w-6 h-6 filter invert"
+            />
+        </div>
+        <span className={`text-lg font-medium transition-colors ${isActive ? "text-white " : "group-hover:text-red-800"
+            }`}>
+            {label}
+        </span> 
+    </Link>
+);

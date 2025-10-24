@@ -81,32 +81,27 @@ const servicios = [
 ];
 
 
-// Dentro de tu componente Home
 const homeSlides = [
     {
         image: "/images/camionescarretera.jpg",
         title: "Servicio a flotillas y particulares.",
     },
     {
-        image: "/images/camion1.jpg", // Reemplaza con tu imagen
+        image: "/images/camion1.jpg",
         title: "Refacciones originales de primera calidad.",
     },
     {
-        image: "/images/refacciones/motor1.jpg", // Reemplaza con tu imagen
+        image: "/images/refacciones/motor1.jpg",
         title: "Amplio inventario de refacciones.",
     },
     {
-        image: "/images/volantecamion.jpg", // Reemplaza con tu imagen
-        title: "Atención experta y personalizada",
+        image: "/images/volantecamion.jpg",
+        title: "Reparación y mantenimiento de motores diesel.", // ← Solo este cambiado
     },
 ];
 
 export default function Home() {
 
-        // VERIFICACIÓN EN HOME.TSX
-    console.log('=== HOME.TSX ===');
-    console.log('Array servicios:', servicios);
-    console.log('Primer servicio descripción:', servicios[0].description);
     return (
         <div>
             <a
@@ -120,7 +115,7 @@ export default function Home() {
 
             <SimpleHeroCarousel
                 slides={homeSlides}
-                autoPlayInterval={3000}
+                autoPlayInterval={4000}
             />
 
 
@@ -167,7 +162,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed">
-                    Diesel Dynamic Service es una empresa con más de 9 años de experiencia dedicada al
+                    Diesel Dynamics Service es una empresa con más de 9 años de experiencia dedicada al
                     servicio de mantenimiento preventivo y correctivo a flotillas, con experiencia certificada
                     en el ramo del diesel y gasolina.
                 </p>

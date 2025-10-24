@@ -81,7 +81,7 @@ const servicios = [
 
 export default function Servicios() {
     return (
-        <section className="pt-12">
+        <section >
             {/* Botón Whatsapp*/}
             <a
                 href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
