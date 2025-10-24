@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 interface Servicio {
     title: string;
     icon: string;
-    description?: string; 
+    description?: string;
 }
 
 interface Props {
@@ -37,6 +37,9 @@ export default function ServicioModal({ servicio, isOpen, onClose }: Props) {
 
     if (!isOpen || !servicio) return null;
 
+    const whatsappMessage = `Hola, solicito información sobre su servicio de: ${servicio.title}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=523320853721&text=${encodeURIComponent(whatsappMessage)}`;
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div
@@ -64,12 +67,17 @@ export default function ServicioModal({ servicio, isOpen, onClose }: Props) {
                     </p>
 
                     <div className="mt-12 text-center">
-                        <button className='border border-red-800 py-3 px-3 rounded-xl '>Solicitar información</button>
-
+                        <a
+                            href={whatsappLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block border border-red-800 py-3 px-6 rounded-xl hover:bg-red-800 hover:text-white text-red-800 text-xl font-semibold transition-all duration-300 hover:scale-105 transform"
+                            onClick={(e) => e.stopPropagation()} // Prevenir interferencia con el cierre del modal
+                        >
+                            Solicitar información
+                        </a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );
