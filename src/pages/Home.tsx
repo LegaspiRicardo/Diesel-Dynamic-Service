@@ -173,17 +173,27 @@ export default function Home() {
             </section>
 
 
-            <div className="bg-red-800/90 py-42 mt-28">
-                <div className=" mx-auto text-center">
+            <div className="bg-red-800/90 py-16 mt-28">
+                <div className="max-w-6xl mx-auto text-center px-6">
                     <h1 className="text-white text-4xl font-bold uppercase mb-4">Rescate urgente</h1>
-                    <p className="text-white">Llame al:</p>
-                    <div className="flex w-11/12 mx-auto  ">
-                        <img src="/icons/telefono.png" alt="Icono telefono" className="w-7 max-h-7 mt-3 ml-1" />
-                        <h1 className="text-white text-5xl font-bold uppercase ml-auto ">33 2629 5248</h1>
+                    <p className="text-white text-lg mb-6">Llame al:</p>
+                    <div className="flex justify-center items-center gap-4">
+                        <img
+                            src="/icons/telefono.png"
+                            alt="Icono telefono"
+                            className="w-8 h-8"
+                        />
+                        <a
+                            href="tel:3326295248"
+                            className="text-white text-5xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                        >
+                            33 2629 5248
+                        </a>
                     </div>
-
+                    <p className="text-white/80 mt-4 text-sm">
+                        Haga clic en el número para llamar inmediatamente
+                    </p>
                 </div>
-
             </div>
 
             {/* Lineas diagonales, separando secciones */}
