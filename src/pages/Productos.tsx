@@ -1,5 +1,7 @@
 // src/pages/Productos.tsx
 import RefaccionesGrid from "../components/RefaccionesGrid";
+import BotonWhats from "../components/BotonWhats";
+
 
 const categoriasRefacciones = [
     {
@@ -68,14 +70,7 @@ export default function Productos() {
     return (
         <section >
             {/* Botón Whatsapp */}
-            <a
-                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20sobre%20sus%20servicios"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 md:left-160 lg:left-220"
-            >
-                <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
-            </a>
+                        <BotonWhats />
 
             {/* Hero Section para Refacciones */}
             <div className="bg-red-800/90 text-white py-20">
@@ -116,55 +111,9 @@ export default function Productos() {
             {/* Introducción a las Refacciones */}
             <div className="max-w-6xl mx-auto px-6 pt-16">
 
-
-                {/* Beneficios Rápidos 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">🔧</div>
-                        <h3 className="text-xl font-bold mb-2">Calidad Garantizada</h3>
-                        <p className="text-gray-600">Todas nuestras refacciones cuentan con garantía y certificación de calidad</p>
-                    </div>
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">🚚</div>
-                        <h3 className="text-xl font-bold mb-2">Disponibilidad </h3>
-                        <p className="text-gray-600">Amplio inventario para entrega inmediata y minimizar tiempos de espera</p>
-                    </div>
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">💯</div>
-                        <h3 className="text-xl font-bold mb-2">Originales y Alternativas</h3>
-                        <p className="text-gray-600">Ofrecemos partes originales y alternativas de calidad certificada</p>
-                    </div>
-                </div>*/}
             </div>
 
 
-
-            {/* Información Adicional sobre Refacciones 
-            <div className="max-w-6xl mx-auto px-6 py-16">
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                    <h2 className="text-3xl font-bold mb-6 text-center">Garantía en Refacciones</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 className="text-xl font-semibold mb-4">Nuestros Compromisos</h3>
-                            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Garantía en todas las refacciones</li>
-                                <li>Certificación de calidad</li>
-                                <li>Proveedores autorizados</li>
-                                <li>Documentación completa</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-4">Ventajas Adicionales</h3>
-                            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Precios competitivos para flotillas</li>
-                                <li>Entrega programada según sus necesidades</li>
-                                <li>Asesoría técnica especializada</li>
-                                <li>Compatibilidad garantizada</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
 
             {/* Llamada a la acción final */}
             <div className="bg-red-800/90 text-white py-12">

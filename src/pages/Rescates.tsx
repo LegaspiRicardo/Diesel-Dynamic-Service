@@ -1,17 +1,12 @@
 // src/pages/Rescates.tsx
+import BotonWhats from "../components/BotonWhats";
+
 
 export default function Rescates() {
     return (
         <section>
             {/* Botón Whatsapp */}
-            <a
-                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20necesito%20servicio%20de%20rescate%20vial%20urgente"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 md:left-160 lg:left-220"
-            >
-                <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
-            </a>
+            <BotonWhats />
 
             {/* Hero Section para Rescates */}
             <div className="bg-red-800/90 text-white py-20">

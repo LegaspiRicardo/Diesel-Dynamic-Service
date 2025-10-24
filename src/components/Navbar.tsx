@@ -34,6 +34,7 @@ export default function Navbar() {
         <>
             <header className={`bg-zinc-800 text-white py-3 px-6 shadow-md transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 right-0 z-50' : 'relative'}`}>
                 <div className="flex justify-between items-center">
+                    {/* Logo y nombre - siempre visibles */}
                     <div className="flex items-center">
                         <a
                             href="/"
@@ -45,27 +46,12 @@ export default function Navbar() {
                                 className="w-24"
                             />
                         </a>
-                        <p className="text-sm text-gray-300 ml-4 hidden md:block">
+                        <p className="text-sm text-gray-300 ml-4">
                             Diesel Dynamics Service
                         </p>
                     </div>
 
-                    {/* Menu escritorio */}
-                    <ul className="hidden md:flex space-x-6">
-                        {links.map((link) => (
-                            <li key={link.path}>
-                                <Link
-                                    to={link.path}
-                                    className={`hover:text-red-800 transition ${pathname === link.path ? "text-red-800 font-semibold" : ""
-                                        }`}
-                                >
-                                    {link.name}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-
-                    {/* Botón para abrir/cerrar el menú lateral */}
+                    {/* Botón menú hamburguesa - siempre visible */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="hover:text-red-800 transition-colors flex flex-col items-center text-xs group"
@@ -73,7 +59,7 @@ export default function Navbar() {
                         <div className="w-8 h-8 flex items-center justify-center bg-zinc-700 rounded-lg group-hover:bg-zinc-600 transition-colors">
                             <span className="text-lg font-bold">☰</span>
                         </div>
-                        <span className="hidden sm:block mt-1">Menú</span>
+                        <span className="mt-1">Menú</span>
                     </button>
                 </div>
             </header>
@@ -83,7 +69,7 @@ export default function Navbar() {
                 <div className="p-6">
                     {/* Header del menú lateral */}
                     <div className="flex justify-between items-center mb-8">
-                        <h2 className="text-xl font-bold">Diesel Dynamics Service</h2>
+                        <a href="/"><h2 className="text-xl font-bold">Diesel Dynamics Service</h2></a>
                         <button
                             onClick={() => setIsMenuOpen(false)}
                             className="text-white hover:text-red-800 text-2xl transition-colors"
@@ -144,8 +130,8 @@ const NavLink = ({
         to={to}
         onClick={onClick}
         className={`flex items-center space-x-4 p-3 rounded-lg transition-all group ${isActive
-                ? "bg-zinc-700 text-red-800 border-l-4 border-red-800"
-                : "hover:bg-zinc-700 hover:text-red-800"
+            ? "bg-zinc-700 text-red-800 border-l-4 border-red-800"
+            : "hover:bg-zinc-700 hover:text-red-800"
             }`}
     >
         <div className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all group-hover:scale-110 ${isActive ? "bg-white" : "bg-zinc-600 group-hover:bg-zinc-500"
@@ -159,6 +145,6 @@ const NavLink = ({
         <span className={`text-lg font-medium transition-colors ${isActive ? "text-white " : "group-hover:text-red-800"
             }`}>
             {label}
-        </span> 
+        </span>
     </Link>
 );
