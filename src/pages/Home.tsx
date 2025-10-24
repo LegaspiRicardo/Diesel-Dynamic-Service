@@ -322,7 +322,6 @@ export default function Home() {
             </section>
 
             {/* Sección ¿Porque elegirnos?*/}
-            {/* Sección ¿Porque elegirnos?*/}
             <section className="py-32 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/images/carretera.jpg)' }}>
 
                 <div className="w-11/12 mx-auto text-justify relative z-10">
@@ -363,11 +362,21 @@ export default function Home() {
                     </div>
 
                     <div className="text-center mt-32 md:mt-20 lg:mt-24">
-                        <h3 className="text-2xl font-bold text-white md:text-2xl lg:text-3xl">¿Qué espera? </h3>
+                        <h3 className="text-3xl font-bold text-white md:text-2xl lg:text-3xl">¿Qué espera? </h3>
                         <h3 className="text-2xl font-bold mb-6 text-white md:text-2xl lg:text-3xl">Invierta en su flotilla</h3>
-                        <button className="bg-red-800/90 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition md:px-10 md:py-4 md:text-lg">
-                            COTIZAR AHORA
-                        </button>
+
+
+                        <a
+                            href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="bg-red-800/90 text-white text-2xl px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition md:px-10 md:py-4 md:text-lg">
+                                COTIZAR AHORA
+                            </button>
+                        </a>
+
+
                     </div>
                 </div>
             </section>

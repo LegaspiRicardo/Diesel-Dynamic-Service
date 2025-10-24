@@ -82,17 +82,23 @@ export default function Productos() {
                 <div className="max-w-6xl mx-auto px-6 text-center">
                     <h1 className="text-5xl font-bold mb-6">Refacciones </h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
-                        Partes originales y de reemplazo 
+                        Partes originales y de reemplazo
                     </p>
-                    <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition">
-                        Solicitar Cotización
-                    </button>
+                    <a
+                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20de%20sus%20refacciones,%20estoy%20buscando:"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="hover:bg-red-800 border border-white text-white text-xl px-8 py-3 rounded-lg font-bold  transition md:px-10 md:py-4 md:text-lg">
+                            COTIZAR AHORA
+                        </button>
+                    </a>
                 </div>
             </div>
 
-                        {/* Sección Carrusel de Refacciones */}
+            {/* Sección Carrusel de Refacciones */}
             <section className="w-11/12 mx-auto bg-gray-50 py-12 rounded-xl">
-                            <div className="text-center mb-12">
+                <div className="text-center mb-12">
                     <p className="text-lg font-bold text-gray-600 max-w-3xl mx-auto text-justify">
                         En Diesel Dynamics Service, entendemos que la calidad de las refacciones es fundamental
                         para el <span className="text-red-800">rendimiento y durabilidad</span> de su flota.
@@ -104,7 +110,7 @@ export default function Productos() {
                         Conozca nuestro catálogo
                     </p>
                 </div>
-                <RefaccionesGrid categorias={categoriasRefacciones}  />
+                <RefaccionesGrid categorias={categoriasRefacciones} />
             </section>
 
             {/* Introducción a las Refacciones */}
@@ -167,9 +173,14 @@ export default function Productos() {
                     <p className="text-xl mb-6">
                         Contáctenos y reciba asesoría especializada para las refacciones que busca
                     </p>
-                    <button className="border border-white hover:bg-gray-100 hover:text-red-800 px-8 py-3 rounded-lg font-bold text-lg transition">
-                        Solicitar Información 
-                    </button>
+                    <a
+                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20refacciones%20en%20especifico"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="hover:bg-red-800 border border-white text-white text-2xl px-8 py-3 rounded-lg font-bold  transition md:px-10 md:py-4 md:text-lg">
+                            Solicitar información                        </button>
+                    </a>
                 </div>
             </div>
         </section>
