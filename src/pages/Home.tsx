@@ -185,7 +185,7 @@ export default function Home() {
                         />
                         <a
                             href="tel:3326295248"
-                            className="text-white text-5xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                            className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
                         >
                             33 2629 5248
                         </a>
