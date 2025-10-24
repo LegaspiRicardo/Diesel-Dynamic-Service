@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto";
 import Productos from "./pages/Productos";
+import Rescates from "./pages/Rescates";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
+            <Route path="/rescates" element={<Rescates />} />
           </Routes>
         </main>
 

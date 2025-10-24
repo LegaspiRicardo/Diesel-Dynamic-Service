@@ -1,0 +1,128 @@
+// src/pages/Rescates.tsx
+
+export default function Rescates() {
+    return (
+        <section>
+            {/* Botón Whatsapp */}
+            <a
+                href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20necesito%20servicio%20de%20rescate%20vial%20urgente"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-1 px-2 rounded-lg fixed bottom-8 left-80 z-50 md:left-160 lg:left-220"
+            >
+                <img src="/icons/whatsapp.png" alt="WhatsApp" className="w-14" />
+            </a>
+
+            {/* Hero Section para Rescates */}
+            <div className="bg-red-800/90 text-white py-20">
+                <div className="max-w-6xl mx-auto px-6 text-center">
+                    <h1 className="text-5xl font-bold mb-6">Rescate Vial</h1>
+                    <p className="text-xl mb-8 max-w-3xl mx-auto">
+                        ¿Su unidad no arranca?, ¿Camión descompuesto? ó ¿Problemas en carretera?                    </p>
+                    <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition uppercase">
+                        Solicitar Rescate
+                    </button>
+                </div>
+            </div>
+
+            {/* Introducción a los Rescates */}
+            <div className="max-w-6xl mx-auto px-6 pt-16">
+
+
+                {/* Beneficios del Servicio de Rescate */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-11/12 mx-auto">
+                    <div className="text-center p-6 bg-white rounded-lg shadow-md">
+                        <div className="text-3xl mb-4">⏱️</div>
+                        <h3 className="text-xl font-bold mb-2">Respuesta Inmediata</h3>
+                    </div>
+                    <div className="text-center p-6 bg-white rounded-lg shadow-md">
+                        <div className="text-3xl mb-4">🚛</div>
+                        <h3 className="text-xl font-bold mb-2">Equipo Especializado</h3>
+                    </div>
+                    <div className="text-center p-6 bg-white rounded-lg shadow-md">
+                        <div className="text-3xl mb-4">🛡️</div>
+                        <h3 className="text-xl font-bold mb-2">Traslado Seguro</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-red-800/90 py-42">
+                <div className=" mx-auto text-center">
+                    <h1 className="text-white text-4xl font-bold uppercase mb-4">Rescate urgente</h1>
+                    <p className="text-white">Llame al:</p>
+                    <div className="flex w-10/12 mx-auto  ">
+                        <img src="/icons/telefono.png" alt="Icono telefono" className="w-7 max-h-7 mt-3 ml-1" />
+                        <h1 className="text-white text-5xl font-bold uppercase ml-auto ">33 2629 5248</h1>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {/* Información del Servicio */}
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-12 max-w-6xl mx-auto px-6">
+                <h2 className="text-3xl font-bold mb-6 text-center">Servicio de Rescate </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Fallas en carretera</li>
+                            <li>Accidentes viales</li>
+                            <li>Fallas mecánicas graves</li>
+                            <li>Problemas eléctricos</li>
+                            <li>Neumáticos reventados</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold mb-4">Cobertura y Disponibilidad</h3>
+                        <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                            <li>Servicio las 24 horas, los 365 días del año</li>
+                            <li>Cobertura en carreteras federales y estatales</li>
+                            <li>Atención en AMG y periféricos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            {/* Proceso de Rescate */}
+            <div className="bg-gray-50 py-12">
+                <div className="max-w-6xl mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-center mb-8 uppercase">Solicita un rescate</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div className="text-center p-6">
+                            <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
+                            <h3 className="text-lg font-bold mb-2">Llamada de Emergencia</h3>
+                            <p className="text-gray-600">Nos contacta por teléfono o WhatsApp proporcionando ubicación y detalles</p>
+                        </div>
+                        <div className="text-center p-6">
+                            <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
+                            <h3 className="text-lg font-bold mb-2">Despacho Inmediato</h3>
+                            <p className="text-gray-600">Enviamos una grúa cercana a su ubicación </p>
+                        </div>
+                        <div className="text-center p-6">
+                            <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
+                            <h3 className="text-lg font-bold mb-2">Rescate en Sitio</h3>
+                            <p className="text-gray-600">Nuestro equipo especializado llega y realiza el rescate de forma segura</p>
+                        </div>
+                        <div className="text-center p-6">
+                            <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">4</div>
+                            <h3 className="text-lg font-bold mb-2">Traslado Garantizado</h3>
+                            <p className="text-gray-600">Transportamos su unidad al taller o destino que usted indique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Llamada a la acción final */}
+            <div className="bg-red-800/90 text-white py-12">
+                <div className="max-w-4xl mx-auto text-center px-6">
+                    <h2 className="text-3xl font-bold mb-12">¿Su unidad no arranca?</h2>
+
+                    <button className="border border-white hover:bg-gray-100 hover:text-red-800 px-8 py-3 rounded-lg font-bold text-lg transition">
+                        Llamar para Rescate Urgente
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+}

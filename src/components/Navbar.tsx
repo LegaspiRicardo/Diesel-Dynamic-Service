@@ -13,6 +13,7 @@ export default function Navbar() {
         { name: "Inicio", path: "/", icon: "home.png" },
         { name: "Servicios", path: "/servicios", icon: "categorias.png" },
         { name: "Refacciones", path: "/productos", icon: "lista.png" },
+        { name: "Rescates", path: "/rescates", icon: "luzambulancia.png" },
         { name: "Contacto", path: "/contacto", icon: "telefono.png" },
     ];
 

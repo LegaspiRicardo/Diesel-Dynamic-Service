@@ -3,78 +3,78 @@ import ServiciosCarousel from "../components/ServiciosCarousel";
 import SimpleHeroCarousel from "../components/SimpleHeroCarousel";
 
 const servicios = [
-    { 
-        title: "Reparación de motor", 
+    {
+        title: "Reparación de motor",
         icon: "/icons/reparacionmotor.PNG",
         description: "Diagnóstico y reparación completa de motores de combustión interna. Incluye desmontaje, evaluación de componentes, rectificación de block, cambio de pistones, bielas, árbol de levas y puesta a punto del sistema de lubricación y refrigeración."
     },
-    { 
-        title: "Frenos", 
+    {
+        title: "Frenos",
         icon: "/icons/frenos.PNG",
         description: "Servicio integral del sistema de frenos. Reemplazo de pastillas, discos, tambores, zapatas y líquido de frenos. Diagnóstico computarizado del sistema ABS y reparación de bombas de freno y cilindros maestros."
     },
-    { 
-        title: "Diagnóstico electronico", 
+    {
+        title: "Diagnóstico electronico",
         icon: "/icons/diagnostico.PNG",
         description: "Escaneo computarizado con equipos de última generación para lectura de códigos de falla, monitoreo en tiempo real de sensores, calibración de módulos electrónicos y programación de centralitas."
     },
-    { 
-        title: "Fuel injection", 
+    {
+        title: "Fuel injection",
         icon: "/icons/fuelinjection.PNG",
         description: "Limpieza y calibración de sistemas de inyección electrónica. Reemplazo de inyectores, bombas de combustible, reguladores de presión y sensores. Optimización del rendimiento y reducción de consumo de combustible."
     },
-    { 
-        title: "Fallas electromecanicas", 
+    {
+        title: "Fallas electromecanicas",
         icon: "/icons/fallaselect.PNG",
         description: "Diagnóstico y reparación de fallas que combinan componentes eléctricos y mecánicos. Solución de problemas en sistemas híbridos, sensores de posición, actuadores y módulos de control integrados."
     },
-    { 
-        title: "Alineación y balanceo", 
+    {
+        title: "Alineación y balanceo",
         icon: "/icons/alineacion.PNG",
         description: "Alineación de dirección con equipos láser de precisión y balanceo dinámico de ruedas. Corrección de ángulos de caída, convergencia y avance. Mejora la estabilidad y prolonga la vida útil de los neumáticos."
     },
-    { 
-        title: "Afinación", 
+    {
+        title: "Afinación",
         icon: "/icons/afinacion.PNG",
         description: "Mantenimiento preventivo completo del motor. Incluye cambio de bujías, cables, filtros (aire, combustible, aceite), limpieza de cuerpo de aceleración y verificación de sistemas de encendido y combustible."
     },
-    { 
-        title: "Bandas de tiempo", 
+    {
+        title: "Bandas de tiempo",
         icon: "/icons/bandatiempo.PNG",
         description: "Reemplazo de kit completo de distribución (banda, tensores, rodamientos). Incluye verificación de sincronización entre árbol de levas y cigüeñal. Prevención de daños catastróficos en el motor."
     },
-    { 
-        title: "Mantenimiento predictivo, preventivo y correctivo", 
+    {
+        title: "Mantenimiento predictivo, preventivo y correctivo",
         icon: "/icons/mantenimientoprevent.PNG",
         description: "Programas de mantenimiento basados en condiciones reales del vehículo. Monitoreo predictivo con tecnología IoT, mantenimiento preventivo programado y corrección inmediata de fallas detectadas."
     },
-    { 
-        title: "Reparación de transmisión", 
+    {
+        title: "Reparación de transmisión",
         icon: "/icons/reparaciontransmision.PNG",
         description: "Reparación especializada de transmisiones automáticas y manuales. Reconstrucción de convertidores de par, cambio de embragues, sincronizadores y reparación de sistemas mecatrónicos en cajas automáticas."
     },
-    { 
-        title: "Gestion de flota", 
+    {
+        title: "Gestion de flota",
         icon: "/icons/gestionflota.PNG",
         description: "Servicios integrales para empresas con múltiples vehículos. Programación de mantenimientos, control de combustible, gestión de reparaciones, reportes de productividad y optimización de costos operativos."
     },
-    { 
-        title: "Suspension", 
+    {
+        title: "Suspension",
         icon: "/icons/suspension.PNG",
         description: "Diagnóstico y reparación completa del sistema de suspensión. Reemplazo de amortiguadores, muelles, rótulas, terminales axiales, brazos de control y estabilizadores. Mejora de confort y seguridad."
     },
-    { 
-        title: "Cambio de clutch", 
+    {
+        title: "Cambio de clutch",
         icon: "/icons/cambioclutch.PNG",
         description: "Reemplazo completo del sistema de embrague. Incluye disco, plato de presión, collarín de empuje y verificación del cilindro maestro y esclavo. Ajuste perfecto para un cambio de marchas suave."
     },
-    { 
-        title: "Reparación de diferenciales", 
+    {
+        title: "Reparación de diferenciales",
         icon: "/icons/reparaciondif.PNG",
         description: "Reparación y reconstrucción de diferenciales convencionales, autoblocantes y electrónicos. Cambio de engranajes cónicos, satélites, coronas y ajuste de precargas. Especialistas en tracción 4x4."
     },
-    { 
-        title: "Alianza comercial con proovedores mayoristas", 
+    {
+        title: "Alianza comercial con proovedores mayoristas",
         icon: "/icons/alianza.PNG",
         description: "Convenios estratégicos con proveedores mayoristas que nos permiten ofrecer repuestos originales y de alta calidad a precios competitivos. Garantía en todos los componentes instalados."
     }
@@ -172,8 +172,22 @@ export default function Home() {
                 </p>
             </section>
 
+
+            <div className="bg-red-800/90 py-42 mt-28">
+                <div className=" mx-auto text-center">
+                    <h1 className="text-white text-4xl font-bold uppercase mb-4">Rescate urgente</h1>
+                    <p className="text-white">Llame al:</p>
+                    <div className="flex w-10/12 mx-auto  ">
+                        <img src="/icons/telefono.png" alt="Icono telefono" className="w-7 max-h-7 mt-3 ml-1" />
+                        <h1 className="text-white text-5xl font-bold uppercase ml-auto ">33 2629 5248</h1>
+                    </div>
+
+                </div>
+
+            </div>
+
             {/* Lineas diagonales, separando secciones */}
-            <div className="w-full overflow-hidden transform mt-24 mb-16 static">
+            <div className="w-full overflow-hidden transform  mb-16 static">
                 <svg
                     className="w-full h-64 md:h-32 block transform rotate-y-180"
                     viewBox="0 0 100 100"
@@ -182,12 +196,12 @@ export default function Home() {
                     {/* Línea gris: diagonal superior */}
                     <polygon
                         points="0,0 100,0 100,2 0,80"
-                        className="fill-zinc-800"
+                        className="fill-red-800/90"
                     />
                     {/* Línea roja: diagonal intermedia */}
                     <polygon
                         points="0,100 100,2 100,0 0,70"
-                        className="fill-red-800"
+                        className="fill-zinc-800"
                     />
                 </svg>
                 <div className="flex w-11/12 mx-auto ">
