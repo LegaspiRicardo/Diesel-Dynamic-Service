@@ -19,9 +19,16 @@ export default function Rescates() {
                     <h1 className="text-5xl font-bold mb-6">Rescate Vial</h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         ¿Su unidad no arranca?, ¿Camión descompuesto? ó ¿Problemas en carretera?                    </p>
-                    <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition uppercase">
-                        Solicitar Rescate
-                    </button>
+                    <a
+                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20necesito%20un%20rescate%20"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition uppercase">
+                            Solicitar Rescate
+                        </button>
+                    </a>
+
                 </div>
             </div>
 
@@ -128,10 +135,15 @@ export default function Rescates() {
             <div className="bg-red-800/90 text-white py-12">
                 <div className="max-w-4xl mx-auto text-center px-6">
                     <h2 className="text-3xl font-bold mb-12">¿Su unidad no arranca?</h2>
+                    <a
+                        href="tel:3326295248"
+                        className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                    >
+                        <button className="border border-white hover:bg-gray-100 hover:text-red-800 px-8 py-3 rounded-lg font-bold text-lg transition">
+                            Llamar para Rescate Urgente
+                        </button>
+                    </a>
 
-                    <button className="border border-white hover:bg-gray-100 hover:text-red-800 px-8 py-3 rounded-lg font-bold text-lg transition">
-                        Llamar para Rescate Urgente
-                    </button>
                 </div>
             </div>
         </section>

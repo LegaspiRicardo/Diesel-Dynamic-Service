@@ -424,7 +424,14 @@ export default function Home() {
                                         Email: <a href="mailto:dieselservice82@gmail.com" className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors block ml-2">dieselservice82@gmail.com</a>
                                     </p>
                                     <p className="text-lg text-gray-600 mb-2">
-                                        Teléfono: <span className="text-red-700 font-bold text-xl"> 33 2629 5248 </span>
+                                        Teléfono:
+                                        <a
+                                            href="tel:3326295248"
+                                            className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                                        >
+                                            <span className="text-red-700 font-bold text-xl"> 33 2629 5248 </span>
+                                        </a>
+
                                     </p>
                                 </div>
                             </div>
