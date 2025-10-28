@@ -9,6 +9,7 @@ import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto";
 import Productos from "./pages/Productos";
 import Rescates from "./pages/Rescates";
+import Galeria from "./pages/Galeria";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/rescates" element={<Rescates />} />
+            <Route path="/galeria" element={<Galeria />} />
           </Routes>
         </main>
 

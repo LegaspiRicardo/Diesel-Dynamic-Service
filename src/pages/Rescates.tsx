@@ -9,8 +9,13 @@ export default function Rescates() {
             <BotonWhats />
 
             {/* Hero Section para Rescates */}
-            <div className="bg-red-800/90 text-white py-20">
-                <div className="max-w-6xl mx-auto px-6 text-center">
+            <div
+                className="relative bg-cover bg-center bg-no-repeat text-white py-20"
+                style={{ backgroundImage: "url('images/ddsfotos/rescate3.jpg')" }}
+            >
+                {/* Overlay para mejor contraste */}
+                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="relative max-w-6xl mx-auto px-6 text-center">
                     <h1 className="text-5xl font-bold mb-6">Rescate Vial</h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         ¿Su unidad no arranca?, ¿Camión descompuesto? ó ¿Problemas en carretera?                    </p>
@@ -19,7 +24,7 @@ export default function Rescates() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <button className="border border-white hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold text-lg transition uppercase">
+                        <button className="border border-white hover:bg-red-800 text-white px-8 py-3 rounded-lg font-bold text-lg transition uppercase">
                             Solicitar Rescate
                         </button>
                     </a>
@@ -61,7 +66,7 @@ export default function Rescates() {
                         />
                         <a
                             href="tel:3326295248"
-                            className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                            className="text-white text-4xl font-bold uppercase hover:scale-110 duration-300"
                         >
                             33 2629 5248
                         </a>

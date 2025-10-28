@@ -87,9 +87,15 @@ export default function Servicios() {
             {/* Botón Whatsapp*/}
             <BotonWhats />
             {/* Hero Section para Servicios */}
-            <div className="bg-red-800/90 text-white py-20">
-                <div className="max-w-6xl mx-auto px-6 text-center">
-                    <h1 className="text-5xl font-bold mb-6">Servicios </h1>
+            <div
+                className="relative bg-cover bg-center bg-no-repeat text-white py-20"
+                style={{ backgroundImage: "url('images/ddsfotos/taller1.jpg')" }}
+            >
+                {/* Overlay para mejor contraste */}
+                <div className="absolute inset-0 bg-black/50"></div>
+
+                <div className="relative max-w-6xl mx-auto px-6 text-center z-10">
+                    <h1 className="text-5xl font-bold mb-6">Servicios</h1>
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         Mantenga su negocio en movimiento
                     </p>
@@ -98,7 +104,7 @@ export default function Servicios() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <button className="hover:bg-red-800 border border-white text-white text-2xl px-8 py-3 rounded-lg font-bold  transition md:px-10 md:py-4 md:text-lg">
+                        <button className="hover:bg-red-800 border border-white text-white text-2xl px-8 py-3 rounded-lg font-bold transition md:px-10 md:py-4 md:text-lg">
                             COTIZAR AHORA
                         </button>
                     </a>

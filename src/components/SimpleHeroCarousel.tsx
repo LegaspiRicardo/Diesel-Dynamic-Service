@@ -109,7 +109,7 @@ export default function SimpleHeroCarousel({ slides, autoPlayInterval = 9000 }: 
                                         className="inline-block  bg-white  hover:bg-red-800/90 hover:text-white text-red-800 font-semibold px-10 py-4 rounded-lg transition-all duration-300 text-2xl hover:scale-105 transform relative z-50 shadow-lg hover:shadow-xl"
                                         onClick={(e) => e.stopPropagation()} // Prevenir interferencia con el carousel
                                     >
-                                        Cotizar servicio
+                                        Solicitar informes
                                     </a>
                                 </div>
                             </div>

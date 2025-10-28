@@ -1,9 +1,42 @@
 // src/pages/Home.tsx
+import { motion } from 'framer-motion';
 import ServiciosCarousel from "../components/ServiciosCarousel";
 import SimpleHeroCarousel from "../components/SimpleHeroCarousel";
 import BotonWhats from "../components/BotonWhats";
 import ContactForm from "../components/ContactForm";
 
+// Configuración de animaciones
+const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const staggerContainer = {
+    animate: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const fadeInLeft = {
+    initial: { opacity: 0, x: -60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const fadeInRight = {
+    initial: { opacity: 0, x: 60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+};
+
+const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.6, ease: "easeOut" }
+};
 
 const servicios = [
     {
@@ -102,8 +135,6 @@ const homeSlides = [
     },
 ];
 
-
-
 export default function Home() {
     return (
         <div>
@@ -115,8 +146,14 @@ export default function Home() {
             />
 
             {/* Sección "Quiénes somos" */}
-            <section className="max-w-6xl mx-auto px-6 pt-20">
-                <div className="flex mb-6">
+            <motion.section
+                className="max-w-6xl mx-auto px-6 pt-20"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainer}
+            >
+                <motion.div className="flex mb-6" variants={fadeInLeft}>
                     <svg
                         className="w-12 h-16 text-red-800/90 mr-2 inline-block transform rotate-90"
                         fill="currentColor"
@@ -128,24 +165,59 @@ export default function Home() {
                     <h2 className="text-3xl md:text-4xl font-bold mt-3 text-zinc-800 uppercase">
                         ¿Quiénes <span className="text-red-800/90"> somos?</span>
                     </h2>
-                </div>
+                </motion.div>
 
-                <p className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed">
+                <motion.p
+                    className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed"
+                    variants={fadeInUp}
+                >
                     Diesel Dynamics Service es una empresa con más de 9 años de experiencia dedicada al
                     servicio de mantenimiento preventivo y correctivo a flotillas, con experiencia certificada
                     en el ramo del diesel y gasolina.
-                </p>
-                <p className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed mt-8">
+                </motion.p>
+                <motion.p
+                    className="text-gray-700 text-xl font-semibold text-justify md:text-xl leading-relaxed mt-8"
+                    variants={fadeInUp}
+                >
                     Además de la comercialización de refacciones y partes
                     para servicio pesado.
-                </p>
-            </section>
+                </motion.p>
+            </motion.section>
 
-            <div className="bg-red-800/90 py-16 mt-28">
+            {/* Sección "Rescate Urgente" */}
+            <motion.div
+                className="bg-red-800/90 py-16 mt-28"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="max-w-6xl mx-auto text-center px-6">
-                    <h1 className="text-white text-4xl font-bold uppercase mb-4">Rescate urgente</h1>
-                    <p className="text-white text-lg mb-6">Llame al:</p>
-                    <div className="flex justify-center items-center gap-4">
+                    <motion.h1
+                        className="text-white text-4xl font-bold uppercase mb-4"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        Rescate urgente
+                    </motion.h1>
+                    <motion.p
+                        className="text-white text-lg mb-6"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                        Llame al:
+                    </motion.p>
+                    <motion.div
+                        className="flex justify-center items-center gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
                         <img
                             src="/icons/telefono.png"
                             alt="Icono telefono"
@@ -153,16 +225,22 @@ export default function Home() {
                         />
                         <a
                             href="tel:3326295248"
-                            className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
+                            className="text-white text-4xl font-bold uppercase hover:scale-x-110 duration-300"
                         >
                             33 2629 5248
                         </a>
-                    </div>
-                    <p className="text-white/80 mt-4 text-sm">
+                    </motion.div>
+                    <motion.p
+                        className="text-white/80 mt-4 text-sm"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
                         Haga clic en el número para llamar inmediatamente
-                    </p>
+                    </motion.p>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Lineas diagonales, separando secciones */}
             <div className="w-full overflow-hidden transform  mb-16 static">
@@ -182,7 +260,13 @@ export default function Home() {
                         className="fill-zinc-800"
                     />
                 </svg>
-                <div className="flex w-11/12 mx-auto ">
+                <motion.div
+                    className="flex w-11/12 mx-auto"
+                    initial={{ opacity: 0, x: -60 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <svg
                         className="w-12 h-16 text-zinc-800/90 mr-2 inline-block transform rotate-90"
                         fill="currentColor"
@@ -197,19 +281,34 @@ export default function Home() {
                         </h2>
                         <p className="font-semibold text-center">Diesel y gasolina</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Sección Servicios*/}
-            <section className=" w-10/12 mx-auto my-12 ">
+            <motion.section
+                className="w-10/12 mx-auto my-12"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+            >
                 <div>
                     <ServiciosCarousel servicios={servicios} itemsPerSlide={5} />
                 </div>
-            </section>
+            </motion.section>
 
             {/* Sección Refacciones*/}
-            <section className="bg-red-800/90 text-white py-32">
-                <div className="flex mb-6 w-11/12 mx-auto">
+            <motion.section
+                className="bg-red-800/90 text-white py-32"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+            >
+                <motion.div
+                    className="flex mb-6 w-11/12 mx-auto"
+                    variants={fadeInLeft}
+                >
                     <svg
                         className="w-12 h-16 text-white mr-2 inline-block transform rotate-90"
                         fill="currentColor"
@@ -221,133 +320,171 @@ export default function Home() {
                     <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white uppercase">
                         Refacciones
                     </h2>
-                </div>
+                </motion.div>
 
-                <p className="text-justify text-xl w-11/12 mx-auto mb-12">
+                <motion.p
+                    className="text-justify text-xl w-11/12 mx-auto mb-12"
+                    variants={fadeInUp}
+                >
                     En DDS podrá encontrar una amplia gama de refacciones tanto de marcas originales
-                </p>
+                </motion.p>
 
                 {/* Grid con centrado completo */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-11/12 mx-auto">
+                <motion.div
+                    className="grid grid-cols-2 md:grid-cols-4 gap-6 w-11/12 mx-auto"
+                    variants={staggerContainer}
+                >
+                    {[
+                        "/logos/marcas/Cat.png",
+                        "/logos/marcas/cummins.png",
+                        "/logos/marcas/mercedesbenz.png",
+                        "/logos/marcas/detroit.png",
+                        "/logos/marcas/freight.png",
+                        "/logos/marcas/international.png",
+                        "/logos/marcas/kenw.png",
+                        "/logos/marcas/navistar.png"
+                    ].map((logo, index) => (
+                        <motion.div
+                            key={index}
+                            className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg"
+                            variants={scaleIn}
+                            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        >
+                            <img src={logo} alt={logo.split('/').pop()} className="brightness-0 invert w-full max-w-[100px] h-auto" />
+                        </motion.div>
+                    ))}
+                </motion.div>
 
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/Cat.png" alt="Caterpillar" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/cummins.png" alt="Cummins" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/mercedesbenz.png" alt="Mercedes Benz" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/detroit.png" alt="Detroit" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/freight.png" alt="Freightliner" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/international.png" alt="International" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/kenw.png" alt="Kenworth" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/navistar.png" alt="Navistar" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                </div>
-
-
-                <p className="text-justify text-xl w-11/12 mx-auto mt-24 mb-8">
+                <motion.p
+                    className="text-justify text-xl w-11/12 mx-auto mt-24 mb-8"
+                    variants={fadeInUp}
+                >
                     Como marcas de reemplazo
-                </p>
+                </motion.p>
+
                 {/* Grid con centrado completo */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-11/12 mx-auto">
-
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/swicch.png" alt="Swicch Parts" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/alliant.png" alt="Alliant Power" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/genuine.png" alt="Genuine PAI" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/interstate.png" alt="Interstate Mcbee" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/ctp.png" alt="CTP" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                    <div className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg">
-                        <img src="/logos/marcas/fpdiesel.png" alt="FP Diesel" className="brightness-0 invert w-full max-w-[100px] h-auto" />
-                    </div>
-                </div>
-
-
-            </section>
+                <motion.div
+                    className="grid grid-cols-2 md:grid-cols-4 gap-6 w-11/12 mx-auto"
+                    variants={staggerContainer}
+                >
+                    {[
+                        "/logos/marcas/swicch.png",
+                        "/logos/marcas/alliant.png",
+                        "/logos/marcas/genuine.png",
+                        "/logos/marcas/interstate.png",
+                        "/logos/marcas/ctp.png",
+                        "/logos/marcas/fpdiesel.png"
+                    ].map((logo, index) => (
+                        <motion.div
+                            key={index}
+                            className="flex items-center justify-center p-4 min-h-[120px] bg-white/5 rounded-lg"
+                            variants={scaleIn}
+                            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        >
+                            <img src={logo} alt={logo.split('/').pop()} className="brightness-0 invert w-full max-w-[100px] h-auto" />
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </motion.section>
 
             {/* Sección ¿Porque elegirnos?*/}
-            <section className="py-32 relative bg-fixed bg-cover bg-center" style={{ backgroundImage: 'url(/images/carretera.jpg)' }}>
+            <motion.section
+                className="py-32 relative bg-fixed bg-cover bg-center"
+                style={{ backgroundImage: 'url(/images/ddsfotos/rescate2edit.jpg)' }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className="w-11/12 mx-auto text-justify relative z-10">
-                    <h2 className="text-3xl font-bold uppercase mb-24 text-center text-white">¿Porque elegirnos?</h2>
+                    <motion.h2
+                        className="text-3xl font-bold uppercase mb-24 text-center text-white"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        ¿Porque elegirnos?
+                    </motion.h2>
 
-                    <div className="md:grid md:grid-cols-3 md:gap-6 md:items-stretch lg:gap-8">
-
-                        <article className="py-4 bg-white bg-opacity-90 relative rounded md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl text-left md:text-left md:text-lg lg:text-xl xl:text-2xl">Minimiza tiempos muertos</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Programamos el mantenimiento de su flota para que ningún camión pare más de lo necesario.</p>
+                    <motion.div
+                        className="md:grid md:grid-cols-3 md:gap-6 md:items-stretch lg:gap-8"
+                        variants={staggerContainer}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                    >
+                        {[
+                            {
+                                title: "Minimiza tiempos muertos",
+                                text: "Programamos el mantenimiento de su flota para que ningún camión pare más de lo necesario."
+                            },
+                            {
+                                title: "Maximiza la vida util",
+                                text: "Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades."
+                            },
+                            {
+                                title: "Transparencia total",
+                                text: "Recibirá fotografias y detalles de cada servicio, sin cargos ocultos."
+                            }
+                        ].map((item, index) => (
+                            <motion.article
+                                key={index}
+                                className="py-4 bg-white bg-opacity-90 relative rounded md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0 mt-8 md:mt-0"
+                                style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}
+                                variants={fadeInUp}
+                                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                            >
+                                <div className="md:p-4 lg:p-6 h-full flex items-center">
+                                    <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
+                                        <h3 className="uppercase font-semibold mb-2 text-2xl text-left md:text-left md:text-lg lg:text-xl xl:text-2xl">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">
+                                            {item.text}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
+                            </motion.article>
+                        ))}
+                    </motion.div>
 
-                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Maximiza la vida util</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Contamos con planes de mantenimiento preventido que extienden la vida de sus unidades.</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article className="py-4 bg-white bg-opacity-90 relative mt-8 rounded md:mt-0 md:rounded-lg md:h-full md:flex md:flex-col md:justify-center md:min-h-0"
-                            style={{ clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)' }}>
-                            <div className="md:p-4 lg:p-6 h-full flex items-center">
-                                <div className="w-10/12 ml-4 md:ml-0 md:w-full md:py-2">
-                                    <h3 className="uppercase font-semibold mb-2 text-2xl md:text-left md:text-lg lg:text-xl xl:text-2xl">Transparencia total</h3>
-                                    <p className="text-xl md:text-sm lg:text-base xl:text-lg md:text-justify">Recibirá fotografias y detalles de cada servicio, sin cargos ocultos.</p>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-
-                    <div className="text-center mt-32 md:mt-20 lg:mt-24">
+                    <motion.div
+                        className="text-center mt-32 md:mt-20 lg:mt-24"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
                         <h3 className="text-3xl font-bold text-white md:text-2xl lg:text-3xl">¿Qué espera? </h3>
                         <h3 className="text-2xl font-bold mb-6 text-white md:text-2xl lg:text-3xl">Invierta en su flotilla</h3>
 
-
-                        <a
+                        <motion.a
                             href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
                             target="_blank"
                             rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            <button className="bg-red-800/90 text-white text-2xl px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition md:px-10 md:py-4 md:text-lg">
+                            <button className="bg-red-800/90 text-white text-2xl px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-red-800 transition md:px-10 md:py-4 md:text-lg">
                                 COTIZAR AHORA
                             </button>
-                        </a>
-
-
-                    </div>
+                        </motion.a>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Sección ubicacion y contacto */}
-            <section>
-                <div className="mt-8">
+            <motion.section
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+            >
+                <motion.div
+                    className="mt-8"
+                    variants={fadeInLeft}
+                >
                     <div className="flex mb-6 w-11/12 mx-auto">
                         <svg
                             className="w-12 h-16 text-red-800/90 mr-2 inline-block transform rotate-90"
@@ -365,12 +502,21 @@ export default function Home() {
                     <section className="pb-16">
                         <div className="container mx-auto px-4">
                             {/* Grid con dos columnas: información de contacto y formulario */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
+                            <motion.div
+                                className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+                                variants={staggerContainer}
+                            >
                                 {/* Columna izquierda - Información de contacto */}
-                                <div className="space-y-8">
+                                <motion.div
+                                    className="space-y-8"
+                                    variants={fadeInLeft}
+                                >
                                     {/* Medios de comunicación */}
-                                    <div className="bg-white p-4 rounded-lg shadow-md">
+                                    <motion.div
+                                        className="bg-white p-4 rounded-lg shadow-md"
+                                        variants={fadeInUp}
+                                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                                    >
                                         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Medios de comunicación</h3>
                                         <div className="space-y-3">
                                             <p className="text-lg text-gray-600 flex items-center">
@@ -403,10 +549,14 @@ export default function Home() {
                                                 </a>
                                             </p>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
                                     {/* Horario de atención */}
-                                    <div className="bg-white p-4 rounded-lg shadow-md">
+                                    <motion.div
+                                        className="bg-white p-4 rounded-lg shadow-md"
+                                        variants={fadeInUp}
+                                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                                    >
                                         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Horario de atención</h3>
                                         <div className="space-y-2">
                                             <p className="text-lg text-gray-600">
@@ -419,10 +569,14 @@ export default function Home() {
                                                 <span className="font-semibold">Domingos:</span> Cerrado
                                             </p>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
                                     {/* Domicilio */}
-                                    <div className="bg-white p-4 rounded-lg shadow-md">
+                                    <motion.div
+                                        className="bg-white p-4 rounded-lg shadow-md"
+                                        variants={fadeInUp}
+                                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                                    >
                                         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Domicilio</h3>
                                         <div className="space-y-3">
                                             <p className="text-lg text-gray-600">
@@ -435,28 +589,34 @@ export default function Home() {
                                                 San Pedro Tlaquepaque, Jalisco
                                             </p>
                                         </div>
-                                    </div>
-                                </div>
+                                    </motion.div>
+                                </motion.div>
 
                                 {/* Columna derecha - Formulario */}
-                                <div>
+                                <motion.div variants={fadeInRight}>
                                     <ContactForm />
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* Mapa - Ahora fuera del grid, abajo de todo */}
-                            <div className="mt-12">
+                            <motion.div
+                                className="mt-12"
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                            >
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1867.509670556299!2d-103.3291793598709!3d20.58726774135173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3738b72c8e5%3A0x95bc82c2792a168a!2sDIESEL%20DYNAMICS%20SERVICE!5e0!3m2!1ses!2smx!4v1761087065633!5m2!1ses!2smx"
                                     loading="lazy"
                                     className="w-full rounded-3xl h-96 border-0"
                                     title="Ubicación de Diesel Dynamics Service"
                                 ></iframe>
-                            </div>
+                            </motion.div>
                         </div>
                     </section>
-                </div>
-            </section>
+                </motion.div>
+            </motion.section>
         </div>
     );
 }

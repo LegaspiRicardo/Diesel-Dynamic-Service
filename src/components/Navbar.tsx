@@ -14,6 +14,7 @@ export default function Navbar() {
         { name: "Servicios", path: "/servicios", icon: "categorias.png" },
         { name: "Refacciones", path: "/productos", icon: "lista.png" },
         { name: "Rescates", path: "/rescates", icon: "luzambulancia.png" },
+        { name: "Galeria", path: "/Galeria", icon: "galeria.png" },
         { name: "Contacto", path: "/contacto", icon: "telefono.png" },
     ];
 
