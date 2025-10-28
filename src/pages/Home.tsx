@@ -140,14 +140,20 @@ export default function Home() {
         <div>
             <BotonWhats />
 
-            <SimpleHeroCarousel
-                slides={homeSlides}
-                autoPlayInterval={4000}
-            />
-
+            <motion.div
+                initial={{ opacity: 10, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+            >
+                <SimpleHeroCarousel
+                    slides={homeSlides}
+                    autoPlayInterval={4000}
+                />
+            </motion.div>
             {/* Sección "Quiénes somos" */}
             <motion.section
-                className="max-w-6xl mx-auto px-6 pt-20"
+                className="max-w-6xl mx-auto px-6 pt-20 md:w-11/12 md:mx-auto"
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, margin: "-100px" }}

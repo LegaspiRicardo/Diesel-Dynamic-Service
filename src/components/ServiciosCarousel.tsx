@@ -26,7 +26,6 @@ export default function ServiciosCarousel({ servicios, itemsPerSlide = 5 }: Prop
     
     const [selectedServicio, setSelectedServicio] = useState<Servicio | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const slides = chunkArray(servicios, itemsPerSlide);
 
     const handleServicioClick = (servicio: Servicio) => {
         console.log('Servicio clickeado CON DESCRIPCIÓN:', servicio);
@@ -39,41 +38,97 @@ export default function ServiciosCarousel({ servicios, itemsPerSlide = 5 }: Prop
         setSelectedServicio(null);
     };
 
+    // Para pantallas grandes: dividir en 2 columnas
+    const serviciosColumna1 = servicios.slice(0, Math.ceil(servicios.length / 2));
+    const serviciosColumna2 = servicios.slice(Math.ceil(servicios.length / 2));
+
     return (
         <>
-            <Swiper
-                modules={[Pagination]}
-                spaceBetween={24}
-                slidesPerView={1}
-                slidesPerGroup={1}
-                navigation
-                pagination={{ clickable: true }}
-            >
-                {slides.map((group, idx) => (
-                    <SwiperSlide key={idx}>
-                        <div className="flex flex-col md:flex-row justify-center gap-2 flex-wrap pb-16">
-                            {group.map((servicio, sIdx) => (
-                                <div 
-                                    key={sIdx} 
-                                    className="border-3 border-red-800 rounded-full flex items-center md:min-w-100 md:max-w-100 justify-start cursor-pointer hover:bg-gray-50 transition-colors"
-                                    onClick={() => handleServicioClick(servicio)}
-                                >
-                                    <div className="w-24 h-24 shrink-0">
-                                        <img
-                                            src={servicio.icon}
-                                            alt={servicio.title}
-                                            className="w-full h-full object-cover rounded-full border-4 border-red-800"
-                                        />
-                                    </div>
-                                    <h3 className="text-gray-700 text-3xl font-semibold uppercase ml-4 text-[clamp(1.2rem,2vw,1.5rem)]">
-                                        {servicio.title}
-                                    </h3>
+            {/* Versión Desktop - Grid de 2 columnas (desde lg: 1024px) */}
+            <div className="hidden lg:block">
+                <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    {/* Columna 1 */}
+                    <div className="space-y-6">
+                        {serviciosColumna1.map((servicio, index) => (
+                            <div 
+                                key={index}
+                                className="border-3 border-red-800 rounded-full flex items-center justify-start cursor-pointer hover:bg-gray-50 transition-colors p-2"
+                                onClick={() => handleServicioClick(servicio)}
+                            >
+                                <div className="w-20 h-20 shrink-0">
+                                    <img
+                                        src={servicio.icon}
+                                        alt={servicio.title}
+                                        className="w-full h-full object-cover rounded-full border-4 border-red-800"
+                                    />
                                 </div>
-                            ))}
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                                <h3 className="text-gray-700 text-xl font-semibold uppercase ml-4 flex-1">
+                                    {servicio.title}
+                                </h3>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    {/* Columna 2 */}
+                    <div className="space-y-6">
+                        {serviciosColumna2.map((servicio, index) => (
+                            <div 
+                                key={index}
+                                className="border-3 border-red-800 rounded-full flex items-center justify-start cursor-pointer hover:bg-gray-50 transition-colors p-2"
+                                onClick={() => handleServicioClick(servicio)}
+                            >
+                                <div className="w-20 h-20 shrink-0">
+                                    <img
+                                        src={servicio.icon}
+                                        alt={servicio.title}
+                                        className="w-full h-full object-cover rounded-full border-4 border-red-800"
+                                    />
+                                </div>
+                                <h3 className="text-gray-700 text-xl font-semibold uppercase ml-4 flex-1">
+                                    {servicio.title}
+                                </h3>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Versión Mobile y Tablet - Carrusel (hasta lg) */}
+            <div className="lg:hidden">
+                <Swiper
+                    modules={[Pagination]}
+                    spaceBetween={24}
+                    slidesPerView={1}
+                    slidesPerGroup={1}
+                    navigation
+                    pagination={{ clickable: true }}
+                >
+                    {chunkArray(servicios, itemsPerSlide).map((group, idx) => (
+                        <SwiperSlide key={idx}>
+                            <div className="flex flex-col justify-center gap-4 pb-16">
+                                {group.map((servicio, sIdx) => (
+                                    <div 
+                                        key={sIdx} 
+                                        className="border-3 border-red-800 rounded-full flex items-center justify-start cursor-pointer hover:bg-gray-50 transition-colors p-2"
+                                        onClick={() => handleServicioClick(servicio)}
+                                    >
+                                        <div className="w-20 h-20 shrink-0">
+                                            <img
+                                                src={servicio.icon}
+                                                alt={servicio.title}
+                                                className="w-full h-full object-cover rounded-full border-4 border-red-800"
+                                            />
+                                        </div>
+                                        <h3 className="text-gray-700 text-xl font-semibold uppercase ml-4 flex-1">
+                                            {servicio.title}
+                                        </h3>
+                                    </div>
+                                ))}
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
             <ServicioModal 
                 servicio={selectedServicio}

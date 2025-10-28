@@ -111,72 +111,38 @@ export default function Servicios() {
                 </div>
             </div>
 
-            {/* Introducción a los Servicios */}
-            <div className="max-w-6xl mx-auto px-6 pt-16">
-                <div className="text-center mb-12">
-                    {/*  <h2 className="text-4xl font-bold mb-8">Todo para el mantenimiento de sus unidades</h2>*/}
-                    <p className="text-lg font-bold text-gray-600 max-w-3xl mx-auto text-justify">
+
+            {/* Sección Carrusel de Servicios */}
+            <section className="w-11/12 mx-auto  bg-gray-50 pt-16  rounded-xl">
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl font-bold ">Todos Nuestros Servicios</h2>
+                    <p className="text-lg font-bold text-gray-600 max-w-3xl mx-auto text-justify py-8">
                         En Diesel Dynamics Service, entendemos que cada minuto de inactividad de su flota
                         representa <span className="text-red-800"> pérdidas económicas </span>. Por eso ofrecemos servicios especializados
                         que garantizan máxima disponibilidad y rendimiento de sus unidades.
                     </p>
                 </div>
-
-                {/* Beneficios Rápidos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">⚡</div>
-                        <h3 className="text-xl font-bold mb-2">Servicio Rápido</h3>
-                        <p className="text-gray-600">Minimizamos tiempos muertos con diagnósticos y reparaciones eficientes</p>
-                    </div>
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">🛡️</div>
-                        <h3 className="text-xl font-bold mb-2">Garantía Incluida</h3>
-                        <p className="text-gray-600">Todos nuestros servicios incluyen garantía por escrito</p>
-                    </div>
-                    <div className="text-center p-6 bg-white rounded-lg shadow-xl">
-                        <div className="text-3xl mb-4">📊</div>
-                        <h3 className="text-xl font-bold mb-2">Reportes Detallados</h3>
-                        <p className="text-gray-600">Reciba reportes completos con fotos del trabajo realizado</p>
-                    </div>
-                </div>
-
-                {/* Lista de servicios básicos - Manteniendo tu estructura actual 
-                <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-                    <h2 className="text-3xl font-bold mb-6 text-center">Servicios Principales</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 className="text-xl font-semibold mb-4">Mantenimiento Regular</h3>
-                            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Cambio de aceite y filtros</li>
-                                <li>Alineación y balanceo</li>
-                                <li>Afinación mayor y menor</li>
-                                <li>Bandas de tiempo</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-semibold mb-4">Reparaciones Especializadas</h3>
-                            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Reparación de motor y transmisión</li>
-                                <li>Sistema de frenos completo</li>
-                                <li>Diagnóstico electrónico avanzado</li>
-                                <li>Suspensión y dirección</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>*/}
-            </div>
-
-            {/* Sección Carrusel de Servicios */}
-            <section className="w-11/12 mx-auto  bg-gray-50 py-12 rounded-xl">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold mb-2">Todos Nuestros Servicios</h2>
-                    <p className="text-lg font-bold text-gray-600 max-w-2xl mx-auto text-center">
-                        Conozca nuestra gama completa de servicios
-                    </p>
-                </div>
                 <ServiciosCarousel servicios={servicios} itemsPerSlide={5} />
             </section>
+
+            {/* Beneficios Rápidos */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-32 md:w-11/12 md:mx-auto">
+                <div className="text-center p-6 bg-white rounded-lg shadow-xl">
+                    <div className="text-3xl mb-4">⚡</div>
+                    <h3 className="text-xl font-bold mb-2">Servicio Rápido</h3>
+                    <p className="text-gray-600">Minimizamos tiempos muertos con diagnósticos y reparaciones eficientes</p>
+                </div>
+                <div className="text-center p-6 bg-white rounded-lg shadow-xl">
+                    <div className="text-3xl mb-4">🛡️</div>
+                    <h3 className="text-xl font-bold mb-2">Garantía Incluida</h3>
+                    <p className="text-gray-600">Todos nuestros servicios incluyen garantía por escrito</p>
+                </div>
+                <div className="text-center p-6 bg-white rounded-lg shadow-xl">
+                    <div className="text-3xl mb-4">📊</div>
+                    <h3 className="text-xl font-bold mb-2">Reportes Detallados</h3>
+                    <p className="text-gray-600">Reciba reportes completos con fotos del trabajo realizado</p>
+                </div>
+            </div>
 
             {/* Llamada a la acción final */}
             <div className="bg-red-800/90 text-white py-12">
