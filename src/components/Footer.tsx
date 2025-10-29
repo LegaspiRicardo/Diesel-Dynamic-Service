@@ -17,15 +17,17 @@ export default function Footer() {
         "Diagnóstico electrónico",
         "Sistema de frenos",
         "Fuel injection",
-        "Alineación y balanceo",
-        "Transmisión"
+        "Llantera móvil",
+        "Transmisión",
+        "Rescates"
     ];
 
     const contactInfo = [
         {
             icon: "📍",
             text: "Los Pinos #2300, La Guadalupana",
-            subtext: "San Pedro Tlaquepaque, Jalisco"
+            subtext: "San Pedro Tlaquepaque, Jalisco",
+            link: "https://maps.app.goo.gl/F5aodWb83QWduWoP7"
         },
         {
             icon: "📞",
@@ -54,7 +56,7 @@ export default function Footer() {
                     <div className="lg:col-span-1">
                         <div className="flex items-center mb-4">
                             <img
-                                src="/logos/logotipoblanco.PNG"
+                                src="/logos/logotipoblanco.png"
                                 alt="Diesel Dynamics Service"
                                 className="h-12 w-auto mr-3"
                             />
@@ -140,6 +142,8 @@ export default function Footer() {
                                         {item.link ? (
                                             <a
                                                 href={item.link}
+                                                target={item.link.includes('maps') ? "_blank" : undefined}
+                                                rel={item.link.includes('maps') ? "noopener noreferrer" : undefined}
                                                 className="text-gray-400 hover:text-red-500 transition-colors text-sm block"
                                             >
                                                 {item.text}
@@ -166,8 +170,6 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-
-
         </footer>
     );
 }

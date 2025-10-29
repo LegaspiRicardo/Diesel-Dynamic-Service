@@ -578,8 +578,11 @@ export default function Home() {
                                     </motion.div>
 
                                     {/* Domicilio */}
-                                    <motion.div
-                                        className="bg-white p-4 rounded-lg shadow-md"
+                                    <motion.a
+                                        href="https://maps.app.goo.gl/F5aodWb83QWduWoP7"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-white p-4 rounded-lg shadow-md cursor-pointer block"
                                         variants={fadeInUp}
                                         whileHover={{ y: -5, transition: { duration: 0.3 } }}
                                     >
@@ -595,7 +598,7 @@ export default function Home() {
                                                 San Pedro Tlaquepaque, Jalisco
                                             </p>
                                         </div>
-                                    </motion.div>
+                                    </motion.a>
                                 </motion.div>
 
                                 {/* Columna derecha - Formulario */}

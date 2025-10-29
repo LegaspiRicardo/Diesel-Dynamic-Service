@@ -34,9 +34,9 @@ export default function Rescates() {
 
             {/* Proceso de Rescate */}
             <div className="bg-gray-50 py-12">
-                <div className="max-w-6xl mx-auto px-6">
+                <div className="max-w-6xl mx-auto px-6 ">
                     <h2 className="text-3xl font-bold text-center mb-8 uppercase">Pasos para solicitar un rescate</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="text-center p-6">
                             <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
                             <h3 className="text-lg font-bold mb-2">Llamada de Emergencia</h3>
@@ -51,11 +51,6 @@ export default function Rescates() {
                             <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
                             <h3 className="text-lg font-bold mb-2">Rescate en Sitio</h3>
                             <p className="text-gray-600">Nuestro equipo especializado llega y realiza el rescate</p>
-                        </div>
-                        <div className="text-center p-6">
-                            <div className="bg-red-800 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 font-bold text-xl">4</div>
-                            <h3 className="text-lg font-bold mb-2">Traslado Garantizado</h3>
-                            <p className="text-gray-600">Transportamos su unidad al taller o destino que usted indique</p>
                         </div>
                     </div>
                 </div>
@@ -102,7 +97,6 @@ export default function Rescates() {
                         <div>
                             <h3 className="text-xl font-semibold mb-4">Cobertura y Disponibilidad</h3>
                             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Servicio las 24 horas, los 365 días del año</li>
                                 <li>Cobertura en carreteras federales y estatales</li>
                                 <li>Atención en AMG y periféricos</li>
                             </ul>
