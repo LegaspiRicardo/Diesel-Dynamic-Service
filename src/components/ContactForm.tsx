@@ -27,8 +27,7 @@ export default function ContactForm() {
         setSubmitStatus('idle');
 
         try {
-            // Crear el contenido del email
-            const subject = `Asunto: ${formData.asunto || 'Solicitud de información'}`;
+            const subject = `Contacto Web: ${formData.asunto || 'Solicitud de información'}`;
             const body = `
 Nombre: ${formData.nombre}
 Email: ${formData.email}
@@ -37,48 +36,31 @@ Asunto: ${formData.asunto}
 
 Mensaje:
 ${formData.mensaje}
+
+---
+Enviado desde el formulario de contacto del sitio web.
             `.trim();
 
-            // Crear enlace mailto estándar (más compatible)
             const mailtoLink = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Intentar abrir el cliente de correo
-            const mailWindow = window.open(mailtoLink, '_blank');
+            // SOLUCIÓN: Usar location.href en lugar de window.open
+            window.location.href = mailtoLink;
             
-            // Si el navegador bloqueó la ventana emergente, mostrar instrucciones
-            if (!mailWindow || mailWindow.closed || typeof mailWindow.closed === 'undefined') {
-                setSubmitStatus('error');
-                // Opcional: mostrar instrucciones al usuario
-                alert('Por favor, copia esta información y envíala manualmente a: ddsperiferico@gmail.com');
-            } else {
-                setSubmitStatus('success');
-                // Limpiar el formulario después de un tiempo
-                setTimeout(() => {
-                    setFormData({
-                        nombre: '',
-                        email: '',
-                        telefono: '',
-                        asunto: '',
-                        mensaje: ''
-                    });
-                }, 2000);
-            }
+            setSubmitStatus('success');
+            
+            setTimeout(() => {
+                setFormData({
+                    nombre: '',
+                    email: '',
+                    telefono: '',
+                    asunto: '',
+                    mensaje: ''
+                });
+            }, 2000);
 
         } catch (error) {
             setSubmitStatus('error');
-            console.error('Error al enviar el formulario:', error);
-            
-            // Fallback: mostrar información para enviar manualmente
-            const fallbackText = `
-Nombre: ${formData.nombre}
-Email: ${formData.email}
-Teléfono: ${formData.telefono}
-Asunto: ${formData.asunto}
-Mensaje: ${formData.mensaje}
-
-Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
-            `;
-            alert(fallbackText);
+            console.error('Error:', error);
         } finally {
             setIsSubmitting(false);
         }
@@ -96,7 +78,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
 
             {submitStatus === 'error' && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                    ⚠ El navegador bloqueó la apertura automática del correo. Por favor, envía manualmente a: ddsperiferico@gmail.com
+                    ⚠ Error al abrir el correo. Por favor, envía manualmente a: ddsperiferico@gmail.com
                 </div>
             )}
 
@@ -111,7 +93,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
                             id="nombre"
                             name="nombre"
                             value={formData.nombre}
-                            onChange={handleChange}
+                            onChange={handleChange} // ✅ CONECTADO
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="Tu nombre completo"
@@ -127,7 +109,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
                             id="email"
                             name="email"
                             value={formData.email}
-                            onChange={handleChange}
+                            onChange={handleChange} // ✅ CONECTADO
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="tu@email.com"
@@ -145,7 +127,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
                             id="telefono"
                             name="telefono"
                             value={formData.telefono}
-                            onChange={handleChange}
+                            onChange={handleChange} // ✅ CONECTADO
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="33 1234 5678"
                         />
@@ -159,7 +141,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
                             id="asunto"
                             name="asunto"
                             value={formData.asunto}
-                            onChange={handleChange}
+                            onChange={handleChange} // ✅ CONECTADO
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                         >
@@ -181,7 +163,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
                         id="mensaje"
                         name="mensaje"
                         value={formData.mensaje}
-                        onChange={handleChange}
+                        onChange={handleChange} // ✅ CONECTADO
                         required
                         rows={6}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors resize-vertical"
