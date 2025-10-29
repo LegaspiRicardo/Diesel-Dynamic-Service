@@ -111,11 +111,7 @@ Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
 
     return (
         <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                <div className="flex items-center">
-                    <span className="text-blue-600 font-bold text-sm">📱 Versión Móvil</span>
-                </div>
-            </div>
+
 
             <h3 className="text-2xl font-semibold mb-6 text-gray-700">Envíanos un mensaje</h3>
 
@@ -374,11 +370,7 @@ ${formData.mensaje}
 
     return (
         <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
-                <div className="flex items-center">
-                    <span className="text-green-600 font-bold text-sm">💻 Versión Escritorio</span>
-                </div>
-            </div>
+
 
             <h3 className="text-2xl font-semibold mb-6 text-gray-700">Envíanos un mensaje</h3>
 
@@ -542,10 +534,6 @@ export default function ContactForm() {
         <div>
             {isMobile ? <MobileContactForm /> : <DesktopContactForm />}
             
-            {/* Información de debug (opcional, puedes removerlo) */}
-            <div className="mt-4 text-xs text-gray-500 text-center">
-                Dispositivo detectado: {isMobile ? 'Móvil' : 'Escritorio'}
-            </div>
         </div>
     );
 }
