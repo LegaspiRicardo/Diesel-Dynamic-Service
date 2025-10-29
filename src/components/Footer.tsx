@@ -37,7 +37,7 @@ export default function Footer() {
         {
             icon: "✉️",
             text: "ddsperiferico@gmail.com",
-            link: "mailto:ddsperiferico2@gmail.com"
+            link: "mailto:ddsperiferico@gmail.com"
         },
         {
             icon: "🕒",

@@ -1,5 +1,4 @@
 // Componente del formulario de contacto para reutilizar
-
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -28,32 +27,58 @@ export default function ContactForm() {
         setSubmitStatus('idle');
 
         try {
-            const subject = encodeURIComponent(`Asunto: ${formData.asunto || 'Solicitud de información'}`);
-            const body = encodeURIComponent(
-                `Nombre: ${formData.nombre}\n` +
-                `Email: ${formData.email}\n` +
-                `Teléfono: ${formData.telefono}\n` +
-                `Asunto: ${formData.asunto}\n\n` +
-                `Mensaje:\n${formData.mensaje}`
-            );
+            // Crear el contenido del email
+            const subject = `Asunto: ${formData.asunto || 'Solicitud de información'}`;
+            const body = `
+Nombre: ${formData.nombre}
+Email: ${formData.email}
+Teléfono: ${formData.telefono}
+Asunto: ${formData.asunto}
 
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ddsperiferico@gmail.com&su=${subject}&body=${body}`;
+Mensaje:
+${formData.mensaje}
+            `.trim();
 
-            // Abrir Gmail en nueva pestaña
-            window.open(gmailLink, '_blank');
+            // Crear enlace mailto estándar (más compatible)
+            const mailtoLink = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            setSubmitStatus('success');
-            setFormData({
-                nombre: '',
-                email: '',
-                telefono: '',
-                asunto: '',
-                mensaje: ''
-            });
+            // Intentar abrir el cliente de correo
+            const mailWindow = window.open(mailtoLink, '_blank');
+            
+            // Si el navegador bloqueó la ventana emergente, mostrar instrucciones
+            if (!mailWindow || mailWindow.closed || typeof mailWindow.closed === 'undefined') {
+                setSubmitStatus('error');
+                // Opcional: mostrar instrucciones al usuario
+                alert('Por favor, copia esta información y envíala manualmente a: ddsperiferico@gmail.com');
+            } else {
+                setSubmitStatus('success');
+                // Limpiar el formulario después de un tiempo
+                setTimeout(() => {
+                    setFormData({
+                        nombre: '',
+                        email: '',
+                        telefono: '',
+                        asunto: '',
+                        mensaje: ''
+                    });
+                }, 2000);
+            }
 
         } catch (error) {
             setSubmitStatus('error');
             console.error('Error al enviar el formulario:', error);
+            
+            // Fallback: mostrar información para enviar manualmente
+            const fallbackText = `
+Nombre: ${formData.nombre}
+Email: ${formData.email}
+Teléfono: ${formData.telefono}
+Asunto: ${formData.asunto}
+Mensaje: ${formData.mensaje}
+
+Por favor, envía esta información manualmente a: ddsperiferico@gmail.com
+            `;
+            alert(fallbackText);
         } finally {
             setIsSubmitting(false);
         }
@@ -65,13 +90,13 @@ export default function ContactForm() {
 
             {submitStatus === 'success' && (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                    ¡Mensaje creado con éxito! Se ha abierto tu aplicación de correo.
+                    ✓ ¡Mensaje creado con éxito! Se ha abierto tu aplicación de correo.
                 </div>
             )}
 
             {submitStatus === 'error' && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                    Error al enviar el mensaje. Por favor, intenta nuevamente.
+                    ⚠ El navegador bloqueó la apertura automática del correo. Por favor, envía manualmente a: ddsperiferico@gmail.com
                 </div>
             )}
 
@@ -164,12 +189,16 @@ export default function ContactForm() {
                     />
                 </div>
 
+                <div className="text-sm text-gray-600 mb-4">
+                    * Al enviar este formulario, se abrirá tu aplicación de correo predeterminada con el mensaje preparado.
+                </div>
+
                 <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-red-800 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                    {isSubmitting ? 'Preparando mensaje...' : 'Abrir aplicación de correo'}
                 </button>
             </form>
         </div>
