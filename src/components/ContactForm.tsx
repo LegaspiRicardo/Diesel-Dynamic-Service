@@ -1,4 +1,4 @@
-// Componente del formulario de contacto - Versión simple y funcional
+// Componente del formulario de contacto - Versión corregida
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -11,6 +11,7 @@ export default function ContactForm() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showManual, setShowManual] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -20,13 +21,9 @@ export default function ContactForm() {
         }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-
-        try {
-            const subject = `Contacto Web: ${formData.asunto || 'Solicitud de información'}`;
-            const body = `
+    const openEmailClient = () => {
+        const subject = `Contacto Web: ${formData.asunto || 'Solicitud de información'}`;
+        const body = `
 Nombre: ${formData.nombre}
 Email: ${formData.email}
 Teléfono: ${formData.telefono}
@@ -37,30 +34,55 @@ ${formData.mensaje}
 
 ---
 Enviado desde dieselds.com
-            `.trim();
+        `.trim();
 
-            // SOLUCIÓN: Usar window.location.href en lugar de window.open
-            window.location.href = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Limpiar el formulario
-            setTimeout(() => {
-                setFormData({
-                    nombre: '',
-                    email: '',
-                    telefono: '',
-                    asunto: '',
-                    mensaje: ''
-                });
-                setIsSubmitting(false);
-            }, 1000);
+        // Crear un enlace temporal y hacer click
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        // Hacer click en el enlace
+        link.click();
+        
+        // Limpiar
+        document.body.removeChild(link);
+        
+        return true;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            const success = openEmailClient();
+            
+            if (success) {
+                // Limpiar el formulario después de un tiempo
+                setTimeout(() => {
+                    setFormData({
+                        nombre: '',
+                        email: '',
+                        telefono: '',
+                        asunto: '',
+                        mensaje: ''
+                    });
+                    setIsSubmitting(false);
+                }, 1000);
+            }
 
         } catch (error) {
             console.error('Error:', error);
+            setShowManual(true);
             setIsSubmitting(false);
-            
-            // Fallback: mostrar información para enviar manualmente
-            const fallbackText = `
-Para: ddsperiferico@gmail.com
+        }
+    };
+
+    const copyToClipboard = () => {
+        const emailContent = `Para: ddsperiferico@gmail.com
 Asunto: Contacto Web: ${formData.asunto}
 
 Nombre: ${formData.nombre}
@@ -68,17 +90,44 @@ Email: ${formData.email}
 Teléfono: ${formData.telefono}
 
 Mensaje:
-${formData.mensaje}
+${formData.mensaje}`;
 
-Por favor, envía esta información manualmente.
-            `;
-            alert(fallbackText);
-        }
+        navigator.clipboard.writeText(emailContent).then(() => {
+            alert('¡Contenido copiado! Pega esto en tu correo.');
+        });
     };
 
     return (
         <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-6 text-gray-700">Envíanos un mensaje</h3>
+
+            {showManual && (
+                <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex justify-between items-start mb-3">
+                        <h4 className="font-semibold text-yellow-800">Enviar manualmente</h4>
+                        <button 
+                            onClick={() => setShowManual(false)}
+                            className="text-yellow-600 hover:text-yellow-800"
+                        >
+                            ×
+                        </button>
+                    </div>
+                    <div className="text-sm text-yellow-700 space-y-2">
+                        <p><strong>Para:</strong> ddsperiferico@gmail.com</p>
+                        <p><strong>Asunto:</strong> Contacto Web: {formData.asunto}</p>
+                        <p><strong>Nombre:</strong> {formData.nombre}</p>
+                        <p><strong>Email:</strong> {formData.email}</p>
+                        <p><strong>Teléfono:</strong> {formData.telefono || 'No proporcionado'}</p>
+                        <p><strong>Mensaje:</strong> {formData.mensaje}</p>
+                    </div>
+                    <button
+                        onClick={copyToClipboard}
+                        className="mt-3 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors"
+                    >
+                        Copiar al portapapeles
+                    </button>
+                </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -169,18 +218,27 @@ Por favor, envía esta información manualmente.
                     />
                 </div>
 
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-red-800 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                    {isSubmitting ? 'Abriendo correo...' : 'Enviar mensaje'}
-                </button>
+                <div className="flex gap-3">
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="flex-1 bg-red-800 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {isSubmitting ? 'Abriendo correo...' : 'Abrir aplicación de correo'}
+                    </button>
+                    
+                    <button
+                        type="button"
+                        onClick={() => setShowManual(true)}
+                        className="flex-1 bg-gray-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-700 transition-colors duration-300"
+                    >
+                        Ver información
+                    </button>
+                </div>
             </form>
 
             <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-sm text-blue-800 text-center">
-                    <strong>Nota:</strong> Se abrirá tu aplicación de correo con el mensaje preparado.<br/>
                     ¿Prefieres WhatsApp? <strong>33 3239 3790</strong>
                 </p>
             </div>
