@@ -1,4 +1,4 @@
-// Componente del formulario de contacto para reutilizar
+// Componente del formulario de contacto - Versión simple y funcional
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -11,7 +11,6 @@ export default function ContactForm() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -24,7 +23,6 @@ export default function ContactForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setSubmitStatus('idle');
 
         try {
             const subject = `Contacto Web: ${formData.asunto || 'Solicitud de información'}`;
@@ -38,16 +36,13 @@ Mensaje:
 ${formData.mensaje}
 
 ---
-Enviado desde el formulario de contacto del sitio web.
+Enviado desde dieselds.com
             `.trim();
 
-            const mailtoLink = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            // SOLUCIÓN: Usar window.location.href en lugar de window.open
+            window.location.href = `mailto:ddsperiferico@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // SOLUCIÓN: Usar location.href en lugar de window.open
-            window.location.href = mailtoLink;
-            
-            setSubmitStatus('success');
-            
+            // Limpiar el formulario
             setTimeout(() => {
                 setFormData({
                     nombre: '',
@@ -56,31 +51,34 @@ Enviado desde el formulario de contacto del sitio web.
                     asunto: '',
                     mensaje: ''
                 });
-            }, 2000);
+                setIsSubmitting(false);
+            }, 1000);
 
         } catch (error) {
-            setSubmitStatus('error');
             console.error('Error:', error);
-        } finally {
             setIsSubmitting(false);
+            
+            // Fallback: mostrar información para enviar manualmente
+            const fallbackText = `
+Para: ddsperiferico@gmail.com
+Asunto: Contacto Web: ${formData.asunto}
+
+Nombre: ${formData.nombre}
+Email: ${formData.email}  
+Teléfono: ${formData.telefono}
+
+Mensaje:
+${formData.mensaje}
+
+Por favor, envía esta información manualmente.
+            `;
+            alert(fallbackText);
         }
     };
 
     return (
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold mb-6 text-gray-700">Envíanos un mensaje</h3>
-
-            {submitStatus === 'success' && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                    ✓ ¡Mensaje creado con éxito! Se ha abierto tu aplicación de correo.
-                </div>
-            )}
-
-            {submitStatus === 'error' && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                    ⚠ Error al abrir el correo. Por favor, envía manualmente a: ddsperiferico@gmail.com
-                </div>
-            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -93,7 +91,7 @@ Enviado desde el formulario de contacto del sitio web.
                             id="nombre"
                             name="nombre"
                             value={formData.nombre}
-                            onChange={handleChange} // ✅ CONECTADO
+                            onChange={handleChange}
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="Tu nombre completo"
@@ -109,7 +107,7 @@ Enviado desde el formulario de contacto del sitio web.
                             id="email"
                             name="email"
                             value={formData.email}
-                            onChange={handleChange} // ✅ CONECTADO
+                            onChange={handleChange}
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="tu@email.com"
@@ -127,7 +125,7 @@ Enviado desde el formulario de contacto del sitio web.
                             id="telefono"
                             name="telefono"
                             value={formData.telefono}
-                            onChange={handleChange} // ✅ CONECTADO
+                            onChange={handleChange}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                             placeholder="33 1234 5678"
                         />
@@ -141,7 +139,7 @@ Enviado desde el formulario de contacto del sitio web.
                             id="asunto"
                             name="asunto"
                             value={formData.asunto}
-                            onChange={handleChange} // ✅ CONECTADO
+                            onChange={handleChange}
                             required
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                         >
@@ -163,7 +161,7 @@ Enviado desde el formulario de contacto del sitio web.
                         id="mensaje"
                         name="mensaje"
                         value={formData.mensaje}
-                        onChange={handleChange} // ✅ CONECTADO
+                        onChange={handleChange}
                         required
                         rows={6}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors resize-vertical"
@@ -171,18 +169,21 @@ Enviado desde el formulario de contacto del sitio web.
                     />
                 </div>
 
-                <div className="text-sm text-gray-600 mb-4">
-                    * Al enviar este formulario, se abrirá tu aplicación de correo predeterminada con el mensaje preparado.
-                </div>
-
                 <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-red-800 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isSubmitting ? 'Preparando mensaje...' : 'Abrir aplicación de correo'}
+                    {isSubmitting ? 'Abriendo correo...' : 'Enviar mensaje'}
                 </button>
             </form>
+
+            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <p className="text-sm text-blue-800 text-center">
+                    <strong>Nota:</strong> Se abrirá tu aplicación de correo con el mensaje preparado.<br/>
+                    ¿Prefieres WhatsApp? <strong>33 3239 3790</strong>
+                </p>
+            </div>
         </div>
     );
 }
