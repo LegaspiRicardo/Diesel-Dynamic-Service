@@ -34,8 +34,8 @@ export default function Footer() {
         },
         {
             icon: "✉️",
-            text: "dieselservice82@gmail.com",
-            link: "mailto:dieselservice82@gmail.com"
+            text: "ddsperiferico@gmail.com",
+            link: "mailto:ddsperiferico2@gmail.com"
         },
         {
             icon: "🕒",
@@ -69,7 +69,7 @@ export default function Footer() {
                         </p>
                         <div className="flex space-x-4">
                             <a
-                                href="https://api.whatsapp.com/send?phone=523326295248"
+                                href="https://api.whatsapp.com/send?phone=523332393790"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-green-600 hover:bg-green-700 text-white p-2 rounded-lg transition-colors"

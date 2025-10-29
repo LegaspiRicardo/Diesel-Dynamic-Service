@@ -466,7 +466,7 @@ export default function Home() {
                         <h3 className="text-2xl font-bold mb-6 text-white md:text-2xl lg:text-3xl">Invierta en su flotilla</h3>
 
                         <motion.a
-                            href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
+                            href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
@@ -528,10 +528,10 @@ export default function Home() {
                                             <p className="text-lg text-gray-600 flex items-center">
                                                 Email:
                                                 <a
-                                                    href="mailto:dieselservice82@gmail.com"
+                                                    href="mailto:ddsperiferico@gmail.com"
                                                     className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors ml-2"
                                                 >
-                                                    dieselservice82@gmail.com
+                                                    ddsperiferico@gmail.com
                                                 </a>
                                             </p>
                                             <p className="text-lg text-gray-600 flex items-center">
@@ -546,12 +546,12 @@ export default function Home() {
                                             <p className="text-lg text-gray-600 flex items-center">
                                                 WhatsApp:
                                                 <a
-                                                    href="https://api.whatsapp.com/send?phone=523326295248"
+                                                    href="https://api.whatsapp.com/send?phone=523332393790"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors ml-2"
                                                 >
-                                                    33 2629 5248
+                                                    33 3239 3790
                                                 </a>
                                             </p>
                                         </div>

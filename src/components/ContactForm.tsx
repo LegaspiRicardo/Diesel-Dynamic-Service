@@ -37,7 +37,7 @@ export default function ContactForm() {
                 `Mensaje:\n${formData.mensaje}`
             );
 
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=dieselservice82@gmail.com&su=${subject}&body=${body}`;
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ddsperiferico@gmail.com&su=${subject}&body=${body}`;
 
             // Abrir Gmail en nueva pestaña
             window.open(gmailLink, '_blank');

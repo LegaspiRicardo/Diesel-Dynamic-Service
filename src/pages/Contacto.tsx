@@ -1,6 +1,6 @@
 // src/pages/Contacto.tsx
 import BotonWhats from "../components/BotonWhats";
-import ContactForm from "../components/ContactForm"; // ← Importar el componente
+import ContactForm from "../components/ContactForm"; 
 
 export default function Contacto() {
     return (
@@ -38,10 +38,10 @@ export default function Contacto() {
                                 <p className="text-lg text-gray-600 flex items-center">
                                     Email: 
                                     <a 
-                                        href="mailto:dieselservice82@gmail.com" 
+                                        href="mailto:ddsperiferico@gmail.com" 
                                         className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors ml-2"
                                     >
-                                        dieselservice82@gmail.com
+                                        ddsperiferico@gmail.com
                                     </a>
                                 </p>
                                 <p className="text-lg text-gray-600 flex items-center">
@@ -56,12 +56,12 @@ export default function Contacto() {
                                 <p className="text-lg text-gray-600 flex items-center">
                                     WhatsApp:
                                     <a
-                                        href="https://api.whatsapp.com/send?phone=523326295248"
+                                        href="https://api.whatsapp.com/send?phone=523332393790"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-red-700 font-bold text-xl underline hover:text-red-800 transition-colors ml-2"
                                     >
-                                        33 2629 5248
+                                        33 3239 3790
                                     </a>
                                 </p>
                             </div>

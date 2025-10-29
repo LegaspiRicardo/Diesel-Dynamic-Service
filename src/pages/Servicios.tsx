@@ -100,7 +100,7 @@ export default function Servicios() {
                         Mantenga su negocio en movimiento
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20sus%20servicios"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -152,7 +152,7 @@ export default function Servicios() {
                         Contáctenos y reciba una cotización personalizada para las necesidades de su flota
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20un%20servicio%20especifico"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20interesa%20solicitar%20una%20cotización%20de%20un%20servicio%20especifico"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

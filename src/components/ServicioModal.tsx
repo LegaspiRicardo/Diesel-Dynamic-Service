@@ -38,7 +38,7 @@ export default function ServicioModal({ servicio, isOpen, onClose }: Props) {
     if (!isOpen || !servicio) return null;
 
     const whatsappMessage = `Hola, solicito información sobre su servicio de: ${servicio.title}`;
-    const whatsappLink = `https://api.whatsapp.com/send?phone=523320853721&text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://api.whatsapp.com/send?phone=523332393790&text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">

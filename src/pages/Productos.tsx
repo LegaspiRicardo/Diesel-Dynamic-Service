@@ -80,7 +80,7 @@ export default function Productos() {
                         Partes originales y de reemplazo
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20de%20sus%20refacciones,%20estoy%20buscando:"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20de%20sus%20refacciones,%20estoy%20buscando:"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -123,7 +123,7 @@ export default function Productos() {
                         Contáctenos y reciba asesoría especializada para las refacciones que busca
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20refacciones%20en%20especifico"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20interesa%20solicitar%20informes%20de%20refacciones%20en%20especifico"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

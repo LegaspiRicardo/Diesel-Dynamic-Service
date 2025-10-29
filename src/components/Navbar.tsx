@@ -94,7 +94,7 @@ export default function Navbar() {
                     <div className="mt-12 pt-6 border-t border-zinc-700">
                         <p className="text-sm text-zinc-200 mb-2">Contacto</p>
                         <p className="text-xs text-zinc-300">Teléfono: 33 2629 5248</p>
-                        <p className="text-xs text-zinc-300">Email: dieselservice82@gmail.com</p>
+                        <p className="text-xs text-zinc-300">Email: ddsperiferico@gmail.com</p>
                     </div>
                 </div>
             </div>

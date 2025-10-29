@@ -76,7 +76,7 @@ export default function Galeria() {
                         Conozca nuestras instalaciones y trabajos
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20gustaría%20agendar%20una%20visita%20a%20sus%20instalaciones"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20gustaría%20agendar%20una%20visita%20a%20sus%20instalaciones"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -145,7 +145,7 @@ export default function Galeria() {
                         Contamos con el equipo y experiencia para atenderlo
                     </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20me%20gustaría%20solicitar%20más%20información%20de%20sus%20servicios%20"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20gustaría%20solicitar%20más%20información%20de%20sus%20servicios%20"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

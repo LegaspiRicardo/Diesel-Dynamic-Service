@@ -20,7 +20,7 @@ export default function Rescates() {
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         ¿Su unidad no arranca?, ¿Camión descompuesto? ó ¿Problemas en carretera?                    </p>
                     <a
-                        href="https://api.whatsapp.com/send?phone=523320853721&text=Hola,%20necesito%20un%20rescate%20"
+                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20necesito%20un%20rescate%20"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

@@ -103,7 +103,7 @@ export default function SimpleHeroCarousel({ slides, autoPlayInterval = 9000 }: 
                                 
                                 <div className="pt-4"> 
                                     <a
-                                        href={`https://api.whatsapp.com/send?phone=523320853721&text=${encodeURIComponent(`Hola, solicito información sobre: ${slide.title}`)}`}
+                                        href={`https://api.whatsapp.com/send?phone=523332393790&text=${encodeURIComponent(`Hola, solicito información sobre: ${slide.title}`)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-block  bg-white  hover:bg-red-800/90 hover:text-white text-red-800 font-semibold px-10 py-4 rounded-lg transition-all duration-300 text-2xl hover:scale-105 transform relative z-50 shadow-lg hover:shadow-xl"
