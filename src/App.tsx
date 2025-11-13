@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto";
-import Productos from "./pages/Productos";
+import NuestrosTrabajos from "./pages/Productos";
 import Rescates from "./pages/Rescates";
 import Galeria from "./pages/Galeria";
 
@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
-            <Route path="/productos" element={<Productos />} />
+            <Route path="/nuestro-trabajo" element={<NuestrosTrabajos />} />
             <Route path="/rescates" element={<Rescates />} />
             <Route path="/galeria" element={<Galeria />} />
           </Routes>

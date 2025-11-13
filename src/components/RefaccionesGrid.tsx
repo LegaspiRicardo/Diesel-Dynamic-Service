@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 interface Categoria {
     title: string;
-    icon: string;
     images: string[];
 }
 
@@ -49,14 +48,7 @@ export default function RefaccionesGrid({ categorias }: RefaccionesGridProps) {
                         key={index} 
                         className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
                     >
-                        {/* Icono de la categoría */}
-                        <div className="w-16 h-16 mx-auto mb-4">
-                            <img
-                                src={categoria.icon}
-                                alt={categoria.title}
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
+
 
                         {/* Título */}
                         <h3 className="text-lg font-bold mb-4 text-gray-800">{categoria.title}</h3>
