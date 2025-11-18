@@ -67,7 +67,7 @@ export default function Footer() {
                         </div>
                         <p className="text-gray-400 mb-4 text-sm leading-relaxed">
                             Especialistas en mantenimiento y reparación de motores diesel y gasolina.
-                            Más de 9 años de experiencia sirviendo a flotillas y particulares.
+                            Más de 9 años de experiencia sirviendo a flotillas.
                         </p>
                         <div className="flex space-x-4">
                             <a
@@ -172,4 +172,5 @@ export default function Footer() {
             </div>
         </footer>
     );
+
 }
