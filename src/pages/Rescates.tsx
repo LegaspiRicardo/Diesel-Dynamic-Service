@@ -68,10 +68,10 @@ export default function Rescates() {
                             className="w-8 h-8"
                         />
                         <a
-                            href="tel:3326295248"
+                            href="tel:3320325591"
                             className="text-white text-4xl font-bold uppercase hover:scale-110 duration-300"
                         >
-                            33 2629 5248
+                            33 2032 5591
                         </a>
                     </div>
                     <p className="text-white/80 mt-4 text-sm">
@@ -128,7 +128,7 @@ export default function Rescates() {
                 <div className="max-w-4xl mx-auto text-center px-6">
                     <h2 className="text-3xl font-bold mb-12">¿Su unidad no arranca?</h2>
                     <a
-                        href="tel:3326295248"
+                        href="tel:3320325591"
                         className="text-white text-4xl font-bold uppercase hover:text-yellow-300 transition-colors duration-300"
                     >
                         <button className="border border-white hover:bg-gray-100 hover:text-red-800 px-8 py-3 rounded-lg font-bold text-lg transition">

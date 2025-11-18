@@ -47,10 +47,10 @@ export default function Contacto() {
                                 <p className="text-lg text-gray-600 flex items-center">
                                     Teléfono:
                                     <a
-                                        href="tel:3326295248"
+                                        href="tel:3320325591"
                                         className="text-red-700 font-bold text-xl hover:text-red-800 transition-colors ml-2"
                                     >
-                                        33 2629 5248
+                                        33 2032 5591
                                     </a>
                                 </p>
                                 <p className="text-lg text-gray-600 flex items-center">

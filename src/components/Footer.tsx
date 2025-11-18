@@ -31,8 +31,8 @@ export default function Footer() {
         },
         {
             icon: "📞",
-            text: "33 2629 5248",
-            link: "tel:3326295248"
+            text: "33 2032 5591",
+            link: "tel:3320325591"
         },
         {
             icon: "✉️",
@@ -82,7 +82,7 @@ export default function Footer() {
                                 </svg>
                             </a>
                             <a
-                                href="tel:3326295248"
+                                href="tel:3320325591"
                                 className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg transition-colors"
                                 aria-label="Llamar"
                             >
