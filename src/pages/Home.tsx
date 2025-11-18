@@ -114,7 +114,7 @@ const servicios = [
 const homeSlides = [
     {
         image: "/images/camionescarretera.jpg",
-        title: "Servicio a flotillas y particulares.",
+        title: "Servicio a flotillas.",
     },
     {
         image: "/images/camion1.jpg",
@@ -623,4 +623,5 @@ export default function Home() {
             </motion.section>
         </div>
     );
+
 }
