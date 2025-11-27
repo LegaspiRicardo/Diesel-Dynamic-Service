@@ -114,7 +114,7 @@ const servicios = [
 const homeSlides = [
     {
         image: "/images/camionescarretera.jpg",
-        title: "Servicio a flotillas.",
+        title: "Servicio a flotillas y particulares.",
     },
     {
         image: "/images/camion1.jpg",
@@ -390,14 +390,20 @@ export default function Home() {
 
             {/* Sección ¿Porque elegirnos?*/}
             <motion.section
-                className="py-32 relative bg-fixed bg-cover bg-center"
-                style={{ backgroundImage: 'url(/images/ddsfotos/rescate2edit.jpg)' }}
+                className="py-32 relative bg-fixed bg-cover bg-center 
+                    bg-[url('/images/ddsfotos/rescate2edit.jpg')] 
+                    md:bg-[url('/images/ddsfotos/rescate1.jpg')]
+                    lg:bg-[url('/images/ddsfotos/rescate3.jpg')]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
+                {/* Overlay para mejor contraste */}
+                <div className="absolute inset-0 bg-black/50 z-0"></div>
+
                 <div className="w-11/12 mx-auto text-justify relative z-10">
+                    {/* Tu contenido existente */}
                     <motion.h2
                         className="text-3xl font-bold uppercase mb-24 text-center text-white"
                         initial={{ opacity: 0, y: 30 }}
@@ -405,7 +411,7 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        ¿Porque elegirnos?
+                        ¿Por Qué Elegirnos?
                     </motion.h2>
 
                     <motion.div
@@ -623,5 +629,4 @@ export default function Home() {
             </motion.section>
         </div>
     );
-
 }

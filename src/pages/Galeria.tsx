@@ -97,7 +97,7 @@ export default function Galeria() {
                     {categorias.map((categoria) => (
                         <button
                             key={categoria.id}
-                            className={`px-6 py-2 border border-red-800 rounded-lg transition-colors font-semibold ${categoriaActiva === categoria.id
+                            className={`md:px-6 py-2 border border-red-800 rounded-lg transition-colors font-semibold ${categoriaActiva === categoria.id
                                     ? "bg-red-800 text-white"
                                     : "bg-white text-red-800 hover:bg-red-800 hover:text-white"
                                 }`}
