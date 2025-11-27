@@ -1,4 +1,5 @@
 // src/pages/Galeria.tsx
+import { useState } from "react";
 import BotonWhats from "../components/BotonWhats";
 
 const imagenesGaleria = [
@@ -57,6 +58,16 @@ const categorias = [
 ];
 
 export default function Galeria() {
+    const [categoriaActiva, setCategoriaActiva] = useState("todas");
+
+    const imagenesFiltradas = categoriaActiva === "todas"
+        ? imagenesGaleria
+        : imagenesGaleria.filter(imagen => imagen.categoria === categoriaActiva);
+
+    const handleFiltrar = (categoriaId: string) => {
+        setCategoriaActiva(categoriaId);
+    };
+
     return (
         <section>
             {/* Botón Whatsapp*/}
@@ -75,39 +86,31 @@ export default function Galeria() {
                     <p className="text-xl mb-8 max-w-3xl mx-auto">
                         Conozca nuestras instalaciones y trabajos
                     </p>
-                    <a
-                        href="https://api.whatsapp.com/send?phone=523332393790&text=Hola,%20me%20gustaría%20agendar%20una%20visita%20a%20sus%20instalaciones"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                    </a>
                 </div>
             </div>
-
-
 
             {/* Galería de Imágenes */}
             <section className="w-11/12 mx-auto bg-gray-50 py-12 rounded-xl">
 
-                {/* Filtros de Categorías */}
-                <div className="flex flex-wrap justify-center gap-4 mb-8 px-6">
+                {/* BOTONES DE FILTRO */}
+                <div className="flex flex-wrap justify-center gap-4 mb-8 md:px-6 ">
                     {categorias.map((categoria) => (
                         <button
                             key={categoria.id}
-                            className="px-6 py-2 bg-white border border-red-800 text-red-800 rounded-lg hover:bg-red-800 hover:text-white transition-colors font-semibold"
-                            onClick={() => {
-                                // Aquí iría la lógica para filtrar las imágenes
-                                console.log(`Filtrar por: ${categoria.id}`);
-                            }}
+                            className={`px-6 py-2 border border-red-800 rounded-lg transition-colors font-semibold ${categoriaActiva === categoria.id
+                                    ? "bg-red-800 text-white"
+                                    : "bg-white text-red-800 hover:bg-red-800 hover:text-white"
+                                }`}
+                            onClick={() => handleFiltrar(categoria.id)}
                         >
                             {categoria.nombre}
                         </button>
                     ))}
                 </div>
 
-                {/* Grid de Imágenes */}
+                {/* GRID DE IMÁGENES */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
-                    {imagenesGaleria.map((imagen, index) => (
+                    {imagenesFiltradas.map((imagen, index) => (
                         <div
                             key={index}
                             className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -117,6 +120,7 @@ export default function Galeria() {
                                     src={imagen.src}
                                     alt={imagen.alt}
                                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="p-4">
@@ -129,8 +133,8 @@ export default function Galeria() {
                     ))}
                 </div>
 
-                {/* Mensaje si no hay imágenes */}
-                {imagenesGaleria.length === 0 && (
+                {/* MENSAJE CUANDO NO HAY IMÁGENES */}
+                {imagenesFiltradas.length === 0 && (
                     <div className="text-center py-12">
                         <p className="text-gray-500 text-lg">No hay imágenes disponibles en esta categoría.</p>
                     </div>
@@ -140,7 +144,7 @@ export default function Galeria() {
             {/* Llamada a la acción final */}
             <div className="bg-red-800/90 text-white py-12">
                 <div className="max-w-4xl mx-auto text-center px-6">
-                    <h2 className="text-3xl font-bold mb-4">¿Busca mantenimiento para su flota?</h2>
+                    <h2 className="text-3xl font-bold mb-4">¿Busca mantenimiento para su flotilla?</h2>
                     <p className="text-xl mb-6">
                         Contamos con el equipo y experiencia para atenderlo
                     </p>
