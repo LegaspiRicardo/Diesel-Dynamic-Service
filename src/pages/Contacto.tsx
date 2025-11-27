@@ -14,7 +14,7 @@ export default function Contacto() {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 <div className="relative w-11/12 mx-auto px-6 text-center  z-10">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold pt-12 drop-shadow-lg">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold pt-12 md:pt-22 lg:pt-36 drop-shadow-lg">
                         Contáctanos
                     </h1>
                     <p className="text-xl md:text-2xl lg:text-3xl font-semibold my-4 max-w-2xl mx-auto drop-shadow-md leading-tight">
